@@ -2,7 +2,7 @@
 name: "iOS 피쳐 개발 이슈 템플릿"
 about: iOS 피쳐 개발 이슈 템플릿
 title: '[iOS] Title'
-labels: 'Feature'
+labels: 'Feature, iOS'
 assignees: 'GangWoon'
 
 ---
