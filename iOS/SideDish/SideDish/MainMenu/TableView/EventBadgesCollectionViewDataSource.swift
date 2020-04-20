@@ -9,6 +9,8 @@
 import UIKit
 
 class EventBadgesCollectionViewDataSource: NSObject {
+    
+    // MARK: - Propeties
     var badges: [String] = ["마감임박",
                             "한정세일",
                             "한정세일한정세일",

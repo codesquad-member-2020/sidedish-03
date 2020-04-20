@@ -17,16 +17,9 @@ class EventBadgesCollectionViewCell: UICollectionViewCell {
     static var identifier: String = "EventBadgesCollectionViewCell"
     
     // MARK: - Lifecycles
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        backgroundColor = .darkGray
-    }
+
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        backgroundColor = .darkGray
-    }
-    
+    // MAKR: - Methods
     func apply(_ text: String) {
         titleLabel.text = text
     }
