@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -15,12 +16,83 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="r6g-1x-FEI">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="137" id="r6g-1x-FEI" customClass="MainMenuTableViewCell" customModule="SideDish" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="137"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r6g-1x-FEI" id="UpM-gT-zpo">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="137"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8eq-gX-V0v">
+                                            <rect key="frame" x="4" y="4" width="129" height="129"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="8eq-gX-V0v" secondAttribute="height" multiplier="1:1" id="r9O-2z-0e1"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[집밥의 완성] 삼채 닭다리 삼계탕 1.2Kg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8V-2O-h5t">
+                                            <rect key="frame" x="141" y="8" width="265" height="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="큼직한 넓다리가 두 개!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8qz-1G-0PO">
+                                            <rect key="frame" x="141" y="30" width="265" height="14.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="9,500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uyf-Is-bOM">
+                                            <rect key="frame" x="141" y="52.5" width="30.5" height="13.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8,500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jss-8r-2ph">
+                                            <rect key="frame" x="175.5" y="51.5" width="35.5" height="16"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SXd-K3-CcW">
+                                            <rect key="frame" x="141" y="74" width="265" height="55"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3vQ-kF-wob">
+                                                <size key="itemSize" width="128" height="128"/>
+                                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            </collectionViewFlowLayout>
+                                            <cells>
+                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="t9J-Sl-PXf">
+                                                    <rect key="frame" x="68.5" y="0.0" width="128" height="128"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="p7i-Nw-7Rc">
+                                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                    </collectionViewCellContentView>
+                                                </collectionViewCell>
+                                            </cells>
+                                        </collectionView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Uyf-Is-bOM" firstAttribute="top" secondItem="8qz-1G-0PO" secondAttribute="bottom" constant="8" id="3qP-DI-wFk"/>
+                                        <constraint firstAttribute="trailing" secondItem="U8V-2O-h5t" secondAttribute="trailing" constant="8" id="7zE-gT-KmR"/>
+                                        <constraint firstItem="SXd-K3-CcW" firstAttribute="trailing" secondItem="U8V-2O-h5t" secondAttribute="trailing" id="86u-sh-LCY"/>
+                                        <constraint firstItem="SXd-K3-CcW" firstAttribute="leading" secondItem="Uyf-Is-bOM" secondAttribute="leading" id="8lR-yV-10T"/>
+                                        <constraint firstItem="Jss-8r-2ph" firstAttribute="leading" secondItem="Uyf-Is-bOM" secondAttribute="trailing" constant="4" id="KBd-gB-rqP"/>
+                                        <constraint firstItem="U8V-2O-h5t" firstAttribute="leading" secondItem="8eq-gX-V0v" secondAttribute="trailing" constant="8" id="RAC-9S-MeO"/>
+                                        <constraint firstItem="8eq-gX-V0v" firstAttribute="top" secondItem="UpM-gT-zpo" secondAttribute="top" constant="4" id="Rjx-j4-XXK"/>
+                                        <constraint firstItem="Uyf-Is-bOM" firstAttribute="leading" secondItem="8qz-1G-0PO" secondAttribute="leading" id="W0e-MA-YV4"/>
+                                        <constraint firstItem="8qz-1G-0PO" firstAttribute="leading" secondItem="U8V-2O-h5t" secondAttribute="leading" id="Xcn-nc-onS"/>
+                                        <constraint firstItem="8qz-1G-0PO" firstAttribute="top" secondItem="U8V-2O-h5t" secondAttribute="bottom" constant="4" id="aGO-Ji-eAg"/>
+                                        <constraint firstItem="8eq-gX-V0v" firstAttribute="leading" secondItem="UpM-gT-zpo" secondAttribute="leading" constant="4" id="bWb-55-anj"/>
+                                        <constraint firstAttribute="bottom" secondItem="SXd-K3-CcW" secondAttribute="bottom" constant="8" id="fVy-1J-zJP"/>
+                                        <constraint firstItem="SXd-K3-CcW" firstAttribute="top" secondItem="Uyf-Is-bOM" secondAttribute="bottom" constant="8" id="iW5-Z5-bCF"/>
+                                        <constraint firstItem="U8V-2O-h5t" firstAttribute="top" secondItem="UpM-gT-zpo" secondAttribute="top" constant="8" id="p2A-NZ-2Qt"/>
+                                        <constraint firstItem="Jss-8r-2ph" firstAttribute="centerY" secondItem="Uyf-Is-bOM" secondAttribute="centerY" id="sI3-hP-y3f"/>
+                                        <constraint firstItem="8qz-1G-0PO" firstAttribute="trailing" secondItem="U8V-2O-h5t" secondAttribute="trailing" id="tRR-ec-Qmf"/>
+                                        <constraint firstAttribute="bottom" secondItem="8eq-gX-V0v" secondAttribute="bottom" constant="4" id="uPQ-f2-RcD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -32,7 +104,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uj1-9d-Hkj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="196" y="-4"/>
+            <point key="canvasLocation" x="195.6521739130435" y="-4.0178571428571423"/>
         </scene>
     </scenes>
 </document>
