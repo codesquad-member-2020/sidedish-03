@@ -26,6 +26,7 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8eq-gX-V0v">
                                             <rect key="frame" x="4" y="4" width="129" height="129"/>
                                             <constraints>
+                                                <constraint firstAttribute="width" constant="129" id="dPU-Cj-7Ug"/>
                                                 <constraint firstAttribute="width" secondItem="8eq-gX-V0v" secondAttribute="height" multiplier="1:1" id="r9O-2z-0e1"/>
                                             </constraints>
                                         </imageView>
@@ -53,7 +54,7 @@
                                             <color key="textColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SXd-K3-CcW">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="SXd-K3-CcW">
                                             <rect key="frame" x="141" y="74" width="265" height="55"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3vQ-kF-wob">
@@ -83,6 +84,7 @@
                                         <constraint firstItem="U8V-2O-h5t" firstAttribute="leading" secondItem="8eq-gX-V0v" secondAttribute="trailing" constant="8" id="RAC-9S-MeO"/>
                                         <constraint firstItem="8eq-gX-V0v" firstAttribute="top" secondItem="UpM-gT-zpo" secondAttribute="top" constant="4" id="Rjx-j4-XXK"/>
                                         <constraint firstItem="Uyf-Is-bOM" firstAttribute="leading" secondItem="8qz-1G-0PO" secondAttribute="leading" id="W0e-MA-YV4"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jss-8r-2ph" secondAttribute="trailing" constant="20" symbolic="YES" id="X7z-MS-6cJ"/>
                                         <constraint firstItem="8qz-1G-0PO" firstAttribute="leading" secondItem="U8V-2O-h5t" secondAttribute="leading" id="Xcn-nc-onS"/>
                                         <constraint firstItem="8qz-1G-0PO" firstAttribute="top" secondItem="U8V-2O-h5t" secondAttribute="bottom" constant="4" id="aGO-Ji-eAg"/>
                                         <constraint firstItem="8eq-gX-V0v" firstAttribute="leading" secondItem="UpM-gT-zpo" secondAttribute="leading" constant="4" id="bWb-55-anj"/>
