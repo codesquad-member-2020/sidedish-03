@@ -21,6 +21,7 @@
 		AEBF8563244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8562244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift */; };
 		AEBF8565244D939D007D46DD /* EventBadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8564244D939D007D46DD /* EventBadgesCollectionViewCell.swift */; };
 		AEBF8568244DC049007D46DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AEBF8567244DC049007D46DD /* SnapKit */; };
+		AEBF856B244DD285007D46DD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF856A244DD285007D46DD /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		AEBF8560244D8E9C007D46DD /* MainMenuTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewSectionHeader.swift; sourceTree = "<group>"; };
 		AEBF8562244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBadgesCollectionViewDataSource.swift; sourceTree = "<group>"; };
 		AEBF8564244D939D007D46DD /* EventBadgesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBadgesCollectionViewCell.swift; sourceTree = "<group>"; };
+		AEBF856A244DD285007D46DD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 		AEBF8533244D7EB5007D46DD /* SideDish */ = {
 			isa = PBXGroup;
 			children = (
+				AEBF8569244DD254007D46DD /* ProductDetail */,
 				AEBF8558244D807E007D46DD /* MainMenu */,
 				AEBF8534244D7EB5007D46DD /* AppDelegate.swift */,
 				AEBF8536244D7EB5007D46DD /* SceneDelegate.swift */,
@@ -133,6 +136,14 @@
 				AEBF8564244D939D007D46DD /* EventBadgesCollectionViewCell.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		AEBF8569244DD254007D46DD /* ProductDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AEBF856A244DD285007D46DD /* ProductDetailViewController.swift */,
+			);
+			path = ProductDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +260,7 @@
 				AEBF8565244D939D007D46DD /* EventBadgesCollectionViewCell.swift in Sources */,
 				AEBF8537244D7EB5007D46DD /* SceneDelegate.swift in Sources */,
 				AEBF855A244D80A4007D46DD /* MainMenuTableViewCell.swift in Sources */,
+				AEBF856B244DD285007D46DD /* ProductDetailViewController.swift in Sources */,
 				AEBF8563244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift in Sources */,
 				AEBF855C244D839D007D46DD /* MainMenuTableViewDataSource.swift in Sources */,
 			);

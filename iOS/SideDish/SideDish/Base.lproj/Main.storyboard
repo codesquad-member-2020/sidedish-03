@@ -133,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="195.6521739130435" y="-4.0178571428571423"/>
         </scene>
-        <!--View Controller-->
+        <!--Product Detail View Controller-->
         <scene sceneID="7Ow-yO-oN2">
             <objects>
-                <viewController id="I3O-mg-e5I" sceneMemberID="viewController">
+                <viewController id="I3O-mg-e5I" customClass="ProductDetailViewController" customModule="SideDish" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sMz-Ur-e69">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oGk-JC-ehH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1460" y="38"/>
+            <point key="canvasLocation" x="1164" y="-4"/>
         </scene>
     </scenes>
 </document>
