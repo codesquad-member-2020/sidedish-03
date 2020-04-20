@@ -16,7 +16,11 @@ class MainMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var normalPriceLabel: UILabel!
     @IBOutlet weak var sailPriceLabel: UILabel!
-    @IBOutlet weak var badgesCollectionView: UICollectionView!
+    @IBOutlet weak var badgesCollectionView: UICollectionView! {
+        didSet {
+            badgesCollectionView.dataSource = badgesDataSource
+        }
+    }
     
     // MARK: - Properties
     static var identifier: String = "MainMenuTableViewCell"
