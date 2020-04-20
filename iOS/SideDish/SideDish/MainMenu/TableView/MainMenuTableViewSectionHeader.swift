@@ -75,7 +75,7 @@ class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
         categoryLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(4)
-            make.leading.equalToSuperview().inset(160).
+            make.leading.equalToSuperview().inset(160)
         }
     }
     
