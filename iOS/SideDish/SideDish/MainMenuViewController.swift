@@ -6,4 +6,8 @@
 //  Copyright © 2020 Cloud. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MainMenuViewController: UITableViewController {
+    
+}
