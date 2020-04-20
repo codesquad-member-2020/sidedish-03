@@ -16,6 +16,7 @@
 		AEBF8557244D7F57007D46DD /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8556244D7F57007D46DD /* MainMenuViewController.swift */; };
 		AEBF855A244D80A4007D46DD /* MainMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8559244D80A4007D46DD /* MainMenuTableViewCell.swift */; };
 		AEBF855C244D839D007D46DD /* MainMenuTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF855B244D839D007D46DD /* MainMenuTableViewDataSource.swift */; };
+		AEBF855E244D8B0F007D46DD /* StrikeThroughMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF855D244D8B0F007D46DD /* StrikeThroughMaker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		AEBF8556244D7F57007D46DD /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		AEBF8559244D80A4007D46DD /* MainMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewCell.swift; sourceTree = "<group>"; };
 		AEBF855B244D839D007D46DD /* MainMenuTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewDataSource.swift; sourceTree = "<group>"; };
+		AEBF855D244D8B0F007D46DD /* StrikeThroughMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeThroughMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 			children = (
 				AEBF8556244D7F57007D46DD /* MainMenuViewController.swift */,
 				AEBF8559244D80A4007D46DD /* MainMenuTableViewCell.swift */,
+				AEBF855D244D8B0F007D46DD /* StrikeThroughMaker.swift */,
 				AEBF855B244D839D007D46DD /* MainMenuTableViewDataSource.swift */,
 			);
 			path = MainMenu;
@@ -216,6 +219,7 @@
 			files = (
 				AEBF8557244D7F57007D46DD /* MainMenuViewController.swift in Sources */,
 				AEBF8535244D7EB5007D46DD /* AppDelegate.swift in Sources */,
+				AEBF855E244D8B0F007D46DD /* StrikeThroughMaker.swift in Sources */,
 				AEBF8537244D7EB5007D46DD /* SceneDelegate.swift in Sources */,
 				AEBF855A244D80A4007D46DD /* MainMenuTableViewCell.swift in Sources */,
 				AEBF855C244D839D007D46DD /* MainMenuTableViewDataSource.swift in Sources */,

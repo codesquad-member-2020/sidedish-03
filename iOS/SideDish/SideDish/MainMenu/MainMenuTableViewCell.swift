@@ -20,4 +20,8 @@ class MainMenuTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     static var identifier: String = "MainMenuTableViewCell"
+    
+    func updateNormalPrice(_ text: String) {
+        normalPriceLabel.attributedText = StrikeThroughMaker.apply(text)
+    }
 }

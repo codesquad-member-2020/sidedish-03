@@ -18,7 +18,12 @@ extension MainMenuTableViewDataSource: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: MainMenuTableViewCell.identifier, for: indexPath) as? MainMenuTableViewCell else { return UITableViewCell() }
+        guard let cell =
+            tableView.dequeueReusableCell(withIdentifier: MainMenuTableViewCell.identifier,
+                                          for: indexPath) as? MainMenuTableViewCell else {
+                                            return UITableViewCell()
+        }
+        cell.updateNormalPrice("8,500")
         return cell
     }
 }
