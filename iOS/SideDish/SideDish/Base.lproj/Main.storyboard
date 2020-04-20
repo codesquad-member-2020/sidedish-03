@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="137" id="r6g-1x-FEI" customClass="MainMenuTableViewCell" customModule="SideDish" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainMenuTableViewCell" rowHeight="137" id="r6g-1x-FEI" customClass="MainMenuTableViewCell" customModule="SideDish" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="137"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r6g-1x-FEI" id="UpM-gT-zpo">
@@ -94,6 +94,14 @@
                                         <constraint firstAttribute="bottom" secondItem="8eq-gX-V0v" secondAttribute="bottom" constant="4" id="uPQ-f2-RcD"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="badgesCollectionView" destination="SXd-K3-CcW" id="vBs-Ws-WHP"/>
+                                    <outlet property="descriptionLabel" destination="8qz-1G-0PO" id="eWC-eF-izL"/>
+                                    <outlet property="foodImageView" destination="8eq-gX-V0v" id="cUZ-ck-4qU"/>
+                                    <outlet property="normalPriceLabel" destination="Uyf-Is-bOM" id="rsr-nA-BC6"/>
+                                    <outlet property="sailPriceLabel" destination="Jss-8r-2ph" id="HYp-lZ-huc"/>
+                                    <outlet property="titleLabel" destination="U8V-2O-h5t" id="VQF-Ph-A0Z"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

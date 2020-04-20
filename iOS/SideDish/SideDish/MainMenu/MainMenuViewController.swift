@@ -10,4 +10,13 @@ import UIKit
 
 class MainMenuViewController: UITableViewController {
     
+    // MARK: - Properties
+    private let dataSource = MainMenuTableViewDataSource()
+    
+    // MARK: - Lifecycles
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = dataSource
+    }
 }
+

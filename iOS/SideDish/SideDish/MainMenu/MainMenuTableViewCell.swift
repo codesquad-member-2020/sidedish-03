@@ -10,4 +10,14 @@ import UIKit
 
 class MainMenuTableViewCell: UITableViewCell {
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var foodImageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var normalPriceLabel: UILabel!
+    @IBOutlet weak var sailPriceLabel: UILabel!
+    @IBOutlet weak var badgesCollectionView: UICollectionView!
+    
+    // MARK: - Properties
+    static var identifier: String = "MainMenuTableViewCell"
 }
