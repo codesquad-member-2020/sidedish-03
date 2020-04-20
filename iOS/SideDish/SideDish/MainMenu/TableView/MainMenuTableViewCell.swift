@@ -20,6 +20,7 @@ class MainMenuTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     static var identifier: String = "MainMenuTableViewCell"
+    private var badgesDataSource: EventBadgesCollectionViewDataSource = EventBadgesCollectionViewDataSource()
     
     func updateNormalPrice(_ text: String) {
         normalPriceLabel.attributedText = StrikeThroughMaker.apply(text)
