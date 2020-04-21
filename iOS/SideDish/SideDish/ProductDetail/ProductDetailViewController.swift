@@ -9,6 +9,7 @@
 import UIKit
 
 class ProductDetailViewController: UIViewController {
+    
     static var identifier: String = "ProductDetailViewController"
     
     override func viewDidLoad() {

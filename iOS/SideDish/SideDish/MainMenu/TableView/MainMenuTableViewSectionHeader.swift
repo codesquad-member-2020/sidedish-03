@@ -15,7 +15,7 @@ extension UIFont {
 }
 
 extension CALayer {
-    static var categoryWidth: CGFloat = 1
+    static var categoryWidth: CGFloat = 0.5
 }
 
 class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
