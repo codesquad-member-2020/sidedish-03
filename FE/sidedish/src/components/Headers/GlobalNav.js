@@ -20,7 +20,7 @@ const GlobalNav = () => {
         setError(null);
         setLoading(true);
         const response = await axios.get('http://localhost:3000/data/menu.json');
-        setMenuList(response.data.menu);
+        setMenuList(response.data);
       } catch (e) {
         setError(e);
       }
