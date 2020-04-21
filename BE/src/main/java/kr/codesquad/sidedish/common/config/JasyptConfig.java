@@ -13,7 +13,7 @@ public class JasyptConfig {
     public StringEncryptor stringEncryptor() {
         PooledPBEStringEncryptor encryptor = new PooledPBEStringEncryptor();
         SimpleStringPBEConfig config = new SimpleStringPBEConfig();
-        config.setPassword("todo"); // 암호화 키 값<서버의 환경변수로 설정해줘야함>
+        config.setPassword(System.getenv("JASYPT_PASSWORD")); // 암호화 키 값<서버의 환경변수로 설정해줘야함>
         config.setAlgorithm("PBEWithMD5AndDES"); // 사용할 알고리즘
         config.setKeyObtentionIterations("1000"); // 해싱을 반복할 횟수
         config.setPoolSize("1"); // Encryptor를 클론하여 가지고 있을 갯수
