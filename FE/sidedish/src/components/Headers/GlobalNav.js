@@ -41,9 +41,9 @@ const GlobalNav = () => {
             <li key={menu.key}>
               <span>{menu.main.name}</span>
               <ul>
-                {menu.sub.map(v => (
-                  <li key={v.key}>
-                    <span>{v.name}</span>
+                {menu.sub.map(subMenu => (
+                  <li key={subMenu.key}>
+                    <span>{subMenu.name}</span>
                   </li>
                 ))}
               </ul>
