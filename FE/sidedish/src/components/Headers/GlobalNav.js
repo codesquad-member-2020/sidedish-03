@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import '../../style/gnb.scss';
 
@@ -8,37 +9,48 @@ const GlobalNavStyled = styled.div`
 `;
 
 const GlobalNav = () => {
-  const [menuList, setMenuList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [menuList, setMenuList] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/data/menu.json')
-      .then(res => res.json())
-      .then(res => {
-        setMenuList(res.menu);
-        setIsLoading(false);
-      });
+    const fetchMenuList = async () => {
+      try {
+        setMenuList(null);
+        setError(null);
+        setLoading(true);
+        const response = await axios.get('http://localhost:3000/data/menu.json');
+        setMenuList(response.data);
+      } catch (e) {
+        setError(e);
+      }
+      setLoading(false);
+    };
+    fetchMenuList();
   }, []);
+
+  if (loading) return <div>로딩중</div>;
+  if (error) return <div>에러</div>;
+  if (!menuList) return null;
+
   return (
     <GlobalNavStyled>
-      {isLoading ? (
-        <div>로딩</div>
-      ) : (
-        <div className='inner'>
-          <ul className='gnb'>
-            {menuList.map(menu => (
-              <li key={menu.key}>
-                <span>{menu.main.name}</span>
-                <ul>
-                  {menu.sub.map(v => (
-                    <li><span>{v.name}</span></li>
-                  ))}
-                </ul>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className='inner'>
+        <ul className='gnb'>
+          {menuList.map(menu => (
+            <li key={menu.key}>
+              <span>{menu.main.name}</span>
+              <ul>
+                {menu.sub.map(subMenu => (
+                  <li key={subMenu.key}>
+                    <span>{subMenu.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </div>
     </GlobalNavStyled>
   );
 };
