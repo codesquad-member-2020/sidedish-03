@@ -15,7 +15,7 @@ class MainMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var normalPriceLabel: UILabel!
-    @IBOutlet weak var sailPriceLabel: UILabel!
+    @IBOutlet weak var salePriceLabel: UILabel!
     @IBOutlet weak var badgesCollectionView: UICollectionView! {
         didSet {
             badgesCollectionView.dataSource = badgesDataSource
