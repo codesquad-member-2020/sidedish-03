@@ -2,10 +2,11 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import '../style/carousel.scss';
 
 const Carousel = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 800,
     slidesToShow: 4,
@@ -25,8 +26,12 @@ const Carousel = () => {
           <div className='item-title'>[미노리키친] 규동 250g </div>
           <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
           <div className='item-price'>
-            <span className='price-sale'>7,000원</span>
-            <span className='price-del'><del>5,000</del></span>
+            <span className='price-del'>
+              <del>5,000</del>
+            </span>
+            <span className='price-sale'>
+              7,000<span className='price-unit'>원</span>
+            </span>
           </div>
           <div className='item-badge'>
             <span>이벤트특가</span>
@@ -45,8 +50,12 @@ const Carousel = () => {
           <div className='item-title'>[미노리키친] 규동 250g </div>
           <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
           <div className='item-price'>
-            <span className='price-sale'>7,000원</span>
-            <span className='price-del'><del>5,000</del></span>
+            <span className='price-del'>
+              <del>5,000</del>
+            </span>
+            <span className='price-sale'>
+              7,000<span className='price-unit'>원</span>
+            </span>
           </div>
           <div className='item-badge'>
             <span>이벤트특가</span>
@@ -65,8 +74,12 @@ const Carousel = () => {
           <div className='item-title'>[미노리키친] 규동 250g </div>
           <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
           <div className='item-price'>
-            <span className='price-sale'>7,000원</span>
-            <span className='price-del'><del>5,000</del></span>
+            <span className='price-del'>
+              <del>5,000</del>
+            </span>
+            <span className='price-sale'>
+              7,000<span className='price-unit'>원</span>
+            </span>
           </div>
           <div className='item-badge'>
             <span>이벤트특가</span>
@@ -85,8 +98,12 @@ const Carousel = () => {
           <div className='item-title'>[미노리키친] 규동 250g </div>
           <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
           <div className='item-price'>
-            <span className='price-sale'>7,000원</span>
-            <span className='price-del'><del>5,000</del></span>
+            <span className='price-del'>
+              <del>5,000</del>
+            </span>
+            <span className='price-sale'>
+              7,000<span className='price-unit'>원</span>
+            </span>
           </div>
           <div className='item-badge'>
             <span>이벤트특가</span>
@@ -105,8 +122,12 @@ const Carousel = () => {
           <div className='item-title'>[미노리키친] 규동 250g </div>
           <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
           <div className='item-price'>
-            <span className='price-sale'>7,000원</span>
-            <span className='price-del'><del>5,000</del></span>
+            <span className='price-del'>
+              <del>5,000</del>
+            </span>
+            <span className='price-sale'>
+              7,000<span className='price-unit'>원</span>
+            </span>
           </div>
           <div className='item-badge'>
             <span>이벤트특가</span>

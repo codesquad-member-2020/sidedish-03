@@ -6,6 +6,7 @@ import '../../style/gnb.scss';
 const GlobalNavStyled = styled.div`
   position: relative;
   background: #483f35;
+  z-index: 10;
 `;
 
 const GlobalNav = () => {
