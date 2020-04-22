@@ -1,9 +1,9 @@
 package kr.codesquad.sidedish.common.login;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class GithubToken {
     @JsonProperty("access_token")
     private String accessToken;
@@ -34,5 +34,9 @@ public class GithubToken {
 
     public void setScope(String scope) {
         this.scope = scope;
+    }
+
+    public String getAthorizationValue() {
+        return this.tokenType + " " + this.accessToken;
     }
 }
