@@ -10,6 +10,7 @@
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-icon": "^1.0.0",
     "react-scripts": "3.4.1",
     "react-slick": "^0.25.2",
     "sass-loader": "^8.0.2",
