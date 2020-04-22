@@ -125,7 +125,7 @@ CREATE TABLE `badge_side_dish`
 CREATE TABLE `user`
 (
     `id`           BIGINT(11)   NOT NULL,
-    `user_name`    VARCHAR(255) NULL,
+    `user_email`    VARCHAR(255) NULL,
     `access_token` VARCHAR(255) NULL,
     PRIMARY KEY (`id`)
 );
