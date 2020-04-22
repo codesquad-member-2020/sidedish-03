@@ -12,14 +12,14 @@ class MainMenuViewController: UITableViewController {
     
     // MARK: - Properties
     private let dataSource = MainMenuTableViewDataSource()
-    let sectionView = MainMenuTableViewSectionHeader()
+    
     
     // MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = dataSource
         navigationController?.navigationBar.isHidden = true
-        sectionView.update(category: "category", title: "title")
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -30,6 +30,8 @@ class MainMenuViewController: UITableViewController {
 
 extension MainMenuViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let sectionView = MainMenuTableViewSectionHeader()
+        sectionView.update(category: "category", title: "title")
         return sectionView
     }
     
