@@ -1,4 +1,4 @@
-package kr.codesquad.sidedish.dto;
+package kr.codesquad.sidedish.business.dto;
 
 public class BadgeDto {
     private String name;
