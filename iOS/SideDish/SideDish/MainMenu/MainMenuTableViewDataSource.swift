@@ -23,7 +23,7 @@ extension MainMenuTableViewDataSource: UITableViewDataSource {
                                           for: indexPath) as? MainMenuTableViewCell else {
                                             return UITableViewCell()
         }
-        cell.updateNormalPrice("8,500")
+        cell.updatePrice(normal: "6,500", sale: "5,400원")
         return cell
     }
 }
