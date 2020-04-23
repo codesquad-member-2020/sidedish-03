@@ -1,4 +1,4 @@
-package kr.codesquad.sidedish.dto;
+package kr.codesquad.sidedish.business.dto;
 
 
 import java.util.ArrayList;
