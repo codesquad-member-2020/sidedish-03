@@ -15,7 +15,7 @@ extension UIFont {
 }
 
 extension CALayer {
-    static var categoryWidth: CGFloat = 0.5
+    static var categoryWidth: CGFloat = 1
 }
 
 class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
@@ -32,6 +32,7 @@ class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: UIFont.categorySize)
         label.layer.borderWidth = CALayer.categoryWidth
+        label.alpha = 0.5
         label.layer.borderColor = UIColor.systemGray.cgColor
         return label
     }()
