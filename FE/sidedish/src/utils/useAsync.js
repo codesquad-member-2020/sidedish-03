@@ -43,7 +43,7 @@ const useAsync = (callback, dpes = []) => {
   useEffect(() => {
     fetchData();
   }, dpes);
-  return [state, fetchData];
+  return state;
 };
 
 export default useAsync

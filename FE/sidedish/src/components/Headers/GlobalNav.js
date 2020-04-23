@@ -1,6 +1,7 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import useAsync from '../../utils/useAsync.js';
 import '../../style/gnb.scss';
 
 const GlobalNavStyled = styled.div`
@@ -9,51 +10,13 @@ const GlobalNavStyled = styled.div`
   z-index: 10;
 `;
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'LOADING':
-      return {
-        loading: true,
-        data: null,
-        error: null,
-      };
-    case 'SUCCESS':
-      return {
-        loading: false,
-        data: action.data,
-        error: null,
-      };
-    case 'ERROR':
-      return {
-        loading: false,
-        data: null,
-        error: action.error,
-      };
-    default:
-      return state;
-  }
+const getMenuList = async () => {
+  const response = await axios.get('http://localhost:3000/data/menu.json');
+  return response.data;
 };
 
 const GlobalNav = () => {
-  const [state, dispath] = useReducer(reducer, {
-    loading: false,
-    data: null,
-    error: null,
-  });
-
-  const fetchMenuList = async () => {
-    dispath({ type: 'LOADING' });
-    try {
-      const response = await axios.get('http://localhost:3000/data/menu.json');
-      dispath({ type: 'SUCCESS', data: response.data });
-    } catch (e) {
-      dispath({ type: 'ERROR', error: e });
-    }
-  };
-
-  useEffect(() => {
-    fetchMenuList();
-  }, []);
+  const state  = useAsync(getMenuList, []);
   const { loading, data: menuList, error } = state;
   if (loading) return <div>로딩중</div>;
   if (error) return <div>에러</div>;
