@@ -108,6 +108,9 @@
         color: #fff;
         border-radius: 5px;
         background: #4590f4;
+        & + span {
+          margin-left: 5px;
+        }
       }
     }
   }
