@@ -11,6 +11,8 @@ const Main = () => {
     <MainStyled>
       <div className='inner'>
         <Carousel url="main"/>
+        <Carousel url="soup"/>
+        <Carousel url="side"/>
       </div>
     </MainStyled>
   );
