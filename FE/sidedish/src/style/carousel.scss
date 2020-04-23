@@ -1,3 +1,20 @@
+.main-list {
+  margin: 50px 0;
+  text-align: center;
+  .main-list-title {
+    span {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: normal;
+      font-size: 18px;
+      color: #999;
+    }
+    margin-bottom: 30px;
+    font-weight: 300;
+    font-size: 34px;
+  }
+}
+
 .slick-slider {
   .item {
     padding: 15px;
