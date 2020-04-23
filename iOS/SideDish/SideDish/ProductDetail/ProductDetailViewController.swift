@@ -9,10 +9,6 @@
 import UIKit
 import SnapKit
 
-extension UIImage {
-    static var foodImageSize: CGFloat = 400
-}
-
 class ProductDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -24,8 +20,7 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var pointLabel: UILabel!
     @IBOutlet weak var transportFee: UILabel!
     @IBOutlet weak var transportInformation: UILabel!
-    @IBOutlet weak var normalPriceLabel: UILabel!
-    @IBOutlet weak var salePriceLabel: UILabel!
+    @IBOutlet weak var priceView: PriceView!
     @IBOutlet weak var mainScrollViewHeightConstraint: NSLayoutConstraint!
     private var headerScrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -36,6 +31,7 @@ class ProductDetailViewController: UIViewController {
     
     // MARK: - Properties
     static var identifier: String = "ProductDetailViewController"
+    private var foodImageSize: CGFloat = 400
     let headerImages: [String] = [
         "header",
         "header",
@@ -62,6 +58,7 @@ class ProductDetailViewController: UIViewController {
     private func configure() {
         configureHeaderView()
         configureDetailView()
+        priceView.updatePrice(normal: "6,500", sale: "5,600원")
     }
     
     private func configureHeaderView() {
@@ -84,7 +81,7 @@ class ProductDetailViewController: UIViewController {
     
     private func configureDetailView() {
         mainScrollViewHeightConstraint.constant =
-            UIImage.foodImageSize * CGFloat(detailFoodImages.count - 1) + foodInformationView.frame.height + headerView.frame.height
+            foodImageSize * CGFloat(detailFoodImages.count - 1) + foodInformationView.frame.height + headerView.frame.height
         configureImageViews(detailView,
                             axis: false,
                             data: detailFoodImages,
@@ -94,7 +91,7 @@ class ProductDetailViewController: UIViewController {
     // 뷰에서 처리하는게 맞는지 궁금합니다.
     private func generatePosition(_ number: Int, _ axis: Bool) -> CGFloat {
         return axis ?
-            view.frame.width * CGFloat(number) : UIImage.foodImageSize * CGFloat(number)
+            view.frame.width * CGFloat(number) : foodImageSize * CGFloat(number)
     }
     
     private func configureImageViews(_ view: UIView, axis: Bool, data: [String], contentMode: UIView.ContentMode) {
@@ -112,7 +109,7 @@ class ProductDetailViewController: UIViewController {
                 : CGRect(x: 0,
                          y: position,
                          width: width,
-                         height: UIImage.foodImageSize)
+                         height: foodImageSize)
             view.addSubview(imageView)
         }
     }
