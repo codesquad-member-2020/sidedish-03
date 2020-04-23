@@ -7,7 +7,6 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 
 import javax.sql.DataSource;
-import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -17,13 +16,7 @@ public class NamedParameterOptionalJdbcTemplate extends NamedParameterJdbcTempla
     }
 
     public <T> Optional<T> queryForOptionalObject(String sql, SqlParameterSource parameterSource, RowMapper<T> rowMapper) {
-        List<T> results = getJdbcOperations().query(getPreparedStatementCreator(sql, parameterSource), rowMapper);
-
-        if (results.isEmpty()) {
-            return Optional.empty();
-        } else {
-            return Optional.ofNullable(results.iterator().next());
-        }
+        return getJdbcOperations().query(getPreparedStatementCreator(sql, parameterSource), rowMapper).stream().findFirst();
     }
 
     public <T> Optional<T> queryForOptionalObject(String sql, Map<String, ?> paramMap, RowMapper<T> rowMapper) {
