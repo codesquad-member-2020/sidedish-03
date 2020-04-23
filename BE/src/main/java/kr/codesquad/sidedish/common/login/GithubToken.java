@@ -36,7 +36,7 @@ public class GithubToken {
         this.scope = scope;
     }
 
-    public String getAthorizationValue() {
+    public String getAuthorizationValue() {
         return this.tokenType + " " + this.accessToken;
     }
 }

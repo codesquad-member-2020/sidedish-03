@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AEB661942451719700ED7B46 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB661932451719700ED7B46 /* PriceView.swift */; };
 		AEBF8535244D7EB5007D46DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8534244D7EB5007D46DD /* AppDelegate.swift */; };
 		AEBF8537244D7EB5007D46DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8536244D7EB5007D46DD /* SceneDelegate.swift */; };
 		AEBF853C244D7EB5007D46DD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEBF853A244D7EB5007D46DD /* Main.storyboard */; };
@@ -18,8 +19,6 @@
 		AEBF855C244D839D007D46DD /* MainMenuTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF855B244D839D007D46DD /* MainMenuTableViewDataSource.swift */; };
 		AEBF855E244D8B0F007D46DD /* StrikeThroughMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF855D244D8B0F007D46DD /* StrikeThroughMaker.swift */; };
 		AEBF8561244D8E9C007D46DD /* MainMenuTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8560244D8E9C007D46DD /* MainMenuTableViewSectionHeader.swift */; };
-		AEBF8563244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8562244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift */; };
-		AEBF8565244D939D007D46DD /* EventBadgesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8564244D939D007D46DD /* EventBadgesCollectionViewCell.swift */; };
 		AEBF8568244DC049007D46DD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = AEBF8567244DC049007D46DD /* SnapKit */; };
 		AEBF856B244DD285007D46DD /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF856A244DD285007D46DD /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
@@ -35,6 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AEB661932451719700ED7B46 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		AEBF8531244D7EB5007D46DD /* SideDish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideDish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBF8534244D7EB5007D46DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEBF8536244D7EB5007D46DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,8 +50,6 @@
 		AEBF855B244D839D007D46DD /* MainMenuTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewDataSource.swift; sourceTree = "<group>"; };
 		AEBF855D244D8B0F007D46DD /* StrikeThroughMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StrikeThroughMaker.swift; sourceTree = "<group>"; };
 		AEBF8560244D8E9C007D46DD /* MainMenuTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuTableViewSectionHeader.swift; sourceTree = "<group>"; };
-		AEBF8562244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBadgesCollectionViewDataSource.swift; sourceTree = "<group>"; };
-		AEBF8564244D939D007D46DD /* EventBadgesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBadgesCollectionViewCell.swift; sourceTree = "<group>"; };
 		AEBF856A244DD285007D46DD /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AEB661952451789300ED7B46 /* PriceView */ = {
+			isa = PBXGroup;
+			children = (
+				AEB661932451719700ED7B46 /* PriceView.swift */,
+			);
+			path = PriceView;
+			sourceTree = "<group>";
+		};
 		AEBF8528244D7EB5007D46DD = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +101,7 @@
 		AEBF8533244D7EB5007D46DD /* SideDish */ = {
 			isa = PBXGroup;
 			children = (
+				AEB661952451789300ED7B46 /* PriceView */,
 				AEBF8569244DD254007D46DD /* ProductDetail */,
 				AEBF8558244D807E007D46DD /* MainMenu */,
 				AEBF8534244D7EB5007D46DD /* AppDelegate.swift */,
@@ -132,8 +139,6 @@
 			children = (
 				AEBF8559244D80A4007D46DD /* MainMenuTableViewCell.swift */,
 				AEBF8560244D8E9C007D46DD /* MainMenuTableViewSectionHeader.swift */,
-				AEBF8562244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift */,
-				AEBF8564244D939D007D46DD /* EventBadgesCollectionViewCell.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -256,12 +261,11 @@
 				AEBF8557244D7F57007D46DD /* MainMenuViewController.swift in Sources */,
 				AEBF8535244D7EB5007D46DD /* AppDelegate.swift in Sources */,
 				AEBF8561244D8E9C007D46DD /* MainMenuTableViewSectionHeader.swift in Sources */,
+				AEB661942451719700ED7B46 /* PriceView.swift in Sources */,
 				AEBF855E244D8B0F007D46DD /* StrikeThroughMaker.swift in Sources */,
-				AEBF8565244D939D007D46DD /* EventBadgesCollectionViewCell.swift in Sources */,
 				AEBF8537244D7EB5007D46DD /* SceneDelegate.swift in Sources */,
 				AEBF855A244D80A4007D46DD /* MainMenuTableViewCell.swift in Sources */,
 				AEBF856B244DD285007D46DD /* ProductDetailViewController.swift in Sources */,
-				AEBF8563244D928A007D46DD /* EventBadgesCollectionViewDataSource.swift in Sources */,
 				AEBF855C244D839D007D46DD /* MainMenuTableViewDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
