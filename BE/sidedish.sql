@@ -92,8 +92,9 @@ CREATE TABLE `category_side_dish`
 );
 CREATE TABLE `food_type`
 (
-    `id`   BIGINT(11)   NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(255) NULL,
+    `id`          BIGINT(11)   NOT NULL AUTO_INCREMENT,
+    `name`        VARCHAR(255) NULL,
+    `description` VARCHAR(255) NULL,
     PRIMARY KEY (`id`)
 );
 CREATE TABLE `delivery_type`
@@ -104,8 +105,9 @@ CREATE TABLE `delivery_type`
 );
 CREATE TABLE `badge`
 (
-    `id`   BIGINT(11)   NOT NULL AUTO_INCREMENT,
-    `name` VARCHAR(255) NULL,
+    `id`    BIGINT(11)   NOT NULL AUTO_INCREMENT,
+    `name`  VARCHAR(255) NULL,
+    `color` VARCHAR(255) NULL,
     PRIMARY KEY (`id`)
 );
 CREATE TABLE `delivery_type_side_dish`
