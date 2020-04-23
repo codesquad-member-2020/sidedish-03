@@ -22,7 +22,7 @@ public class LoginController {
     public ResponseEntity<String> githubLogin(@PathParam("code") String code, HttpServletResponse response) {
         log.debug("code : {}", code);
         GithubToken githubToken = loginService.getAccessToken(code);
-        response.setHeader("Authorization", githubToken.getAthorizationValue());
+        response.setHeader("Authorization", githubToken.getAuthorizationValue());
         //TODO : 응답객체를 만들어서 Wrapping하여 반환
         return ResponseEntity.ok("logined");
     }
