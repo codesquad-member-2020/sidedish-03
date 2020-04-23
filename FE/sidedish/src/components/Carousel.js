@@ -1,10 +1,25 @@
 import React from 'react';
 import Slider from 'react-slick';
+import axios from 'axios';
+import useAsync from '../utils/useAsync';
+import { URL } from '../constant/url';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../style/carousel.scss';
 
-const Carousel = () => {
+const Carousel = (props) => {
+  const getItem = async () => {
+    const response = await axios.get(`${URL}${props.url}`);
+    return response.data;
+  };
+  const state = useAsync(getItem);
+  const { loading, data: mainItem, error } = state;
+  if (loading) return <div>로딩중</div>;
+  if (error) return <div>에러</div>;
+  if (!mainItem) return null;
+
+  console.log(mainItem.body)
+
   const settings = {
     dots: false,
     infinite: true,
