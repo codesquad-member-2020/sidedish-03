@@ -42,6 +42,7 @@ const useAsync = (callback, dpes = []) => {
   };
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line
   }, dpes);
   return state;
 };
