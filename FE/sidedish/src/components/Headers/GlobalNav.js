@@ -1,34 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import useAsync from '../../utils/useAsync';
+import { MOCK_URL } from '../../constant/url';
 import '../../style/gnb.scss';
 
 const GlobalNavStyled = styled.div`
   position: relative;
   background: #483f35;
+  z-index: 10;
 `;
 
+const getMenuList = async () => {
+  const response = await axios.get(`${MOCK_URL}data/menu.json`);
+  return response.data;
+};
+
 const GlobalNav = () => {
-  const [menuList, setMenuList] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchMenuList = async () => {
-      try {
-        setMenuList(null);
-        setError(null);
-        setLoading(true);
-        const response = await axios.get('http://localhost:3000/data/menu.json');
-        setMenuList(response.data);
-      } catch (e) {
-        setError(e);
-      }
-      setLoading(false);
-    };
-    fetchMenuList();
-  }, []);
-
+  const state = useAsync(getMenuList);
+  const { loading, data: menuList, error } = state;
   if (loading) return <div>로딩중</div>;
   if (error) return <div>에러</div>;
   if (!menuList) return null;
