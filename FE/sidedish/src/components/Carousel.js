@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../style/carousel.scss';
 
-const Carousel = (props) => {
+const Carousel = props => {
   const getItem = async () => {
     const response = await axios.get(`${URL}${props.url}`);
     return response.data;
@@ -18,8 +18,6 @@ const Carousel = (props) => {
   if (error) return <div>에러</div>;
   if (!mainItem) return null;
 
-  console.log(mainItem.body)
-
   const settings = {
     dots: false,
     infinite: true,
@@ -28,128 +26,43 @@ const Carousel = (props) => {
     slidesToScroll: 4,
   };
   return (
-    <Slider {...settings}>
-      <div className='item' data-item='HBDEF'>
-        <div className='item-thumb'>
-          <img src='http://public.codesquad.kr/jk/storeapp/data/2d3f99a9a35601f4e98837bc4d39b2c8.jpg' alt='[미노리키친] 규동 250g' />
-          <div className='hover-text'>
-            <p>새벽배송</p>
-            <p>전국택배</p>
+    <div className='main-list'>
+      <p className='main-list-title'>
+        <span>리스트 타이틀</span>리스트 관련 설명이 나올 예정입니다.
+      </p>
+      <Slider {...settings}>
+        {mainItem.body.map((item, index) => (
+          <div className='item' key={index} data-item={item.detail_hash}>
+            <div className='item-thumb'>
+              <img src={item.image} alt={item.alt} />
+              <div className='hover-text'>
+                {item.delivery_type.map((subMenu, index) => (
+                  <p key={index}>{subMenu}</p>
+                ))}
+              </div>
+            </div>
+            <div className='item-info'>
+              <div className='item-title'>{item.title}</div>
+              <div className='item-description'>{item.description}</div>
+              <div className='item-price'>
+                {!item.n_price ? (
+                  ''
+                ) : (
+                  <span className='price-del'>
+                    <del>{item.n_price}</del>
+                  </span>
+                )}
+                <span className='price-sale'>
+                  {item.s_price}
+                  <span className='price-unit'>원</span>
+                </span>
+              </div>
+              <div className='item-badge'>{!item.badge ? '' : item.badge.map((badge, index) => <span key={index}>{badge}</span>)}</div>
+            </div>
           </div>
-        </div>
-        <div className='item-info'>
-          <div className='item-title'>[미노리키친] 규동 250g </div>
-          <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
-          <div className='item-price'>
-            <span className='price-del'>
-              <del>5,000</del>
-            </span>
-            <span className='price-sale'>
-              7,000<span className='price-unit'>원</span>
-            </span>
-          </div>
-          <div className='item-badge'>
-            <span>이벤트특가</span>
-          </div>
-        </div>
-      </div>
-      <div className='item' data-item='HBDEF'>
-        <div className='item-thumb'>
-          <img src='http://public.codesquad.kr/jk/storeapp/data/2d3f99a9a35601f4e98837bc4d39b2c8.jpg' alt='[미노리키친] 규동 250g' />
-          <div className='hover-text'>
-            <p>새벽배송</p>
-            <p>전국택배</p>
-          </div>
-        </div>
-        <div className='item-info'>
-          <div className='item-title'>[미노리키친] 규동 250g </div>
-          <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
-          <div className='item-price'>
-            <span className='price-del'>
-              <del>5,000</del>
-            </span>
-            <span className='price-sale'>
-              7,000<span className='price-unit'>원</span>
-            </span>
-          </div>
-          <div className='item-badge'>
-            <span>이벤트특가</span>
-          </div>
-        </div>
-      </div>
-      <div className='item' data-item='HBDEF'>
-        <div className='item-thumb'>
-          <img src='http://public.codesquad.kr/jk/storeapp/data/2d3f99a9a35601f4e98837bc4d39b2c8.jpg' alt='[미노리키친] 규동 250g' />
-          <div className='hover-text'>
-            <p>새벽배송</p>
-            <p>전국택배</p>
-          </div>
-        </div>
-        <div className='item-info'>
-          <div className='item-title'>[미노리키친] 규동 250g </div>
-          <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
-          <div className='item-price'>
-            <span className='price-del'>
-              <del>5,000</del>
-            </span>
-            <span className='price-sale'>
-              7,000<span className='price-unit'>원</span>
-            </span>
-          </div>
-          <div className='item-badge'>
-            <span>이벤트특가</span>
-          </div>
-        </div>
-      </div>
-      <div className='item' data-item='HBDEF'>
-        <div className='item-thumb'>
-          <img src='http://public.codesquad.kr/jk/storeapp/data/2d3f99a9a35601f4e98837bc4d39b2c8.jpg' alt='[미노리키친] 규동 250g' />
-          <div className='hover-text'>
-            <p>새벽배송</p>
-            <p>전국택배</p>
-          </div>
-        </div>
-        <div className='item-info'>
-          <div className='item-title'>[미노리키친] 규동 250g </div>
-          <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
-          <div className='item-price'>
-            <span className='price-del'>
-              <del>5,000</del>
-            </span>
-            <span className='price-sale'>
-              7,000<span className='price-unit'>원</span>
-            </span>
-          </div>
-          <div className='item-badge'>
-            <span>이벤트특가</span>
-          </div>
-        </div>
-      </div>
-      <div className='item' data-item='HBDEF'>
-        <div className='item-thumb'>
-          <img src='http://public.codesquad.kr/jk/storeapp/data/2d3f99a9a35601f4e98837bc4d39b2c8.jpg' alt='[미노리키친] 규동 250g' />
-          <div className='hover-text'>
-            <p>새벽배송</p>
-            <p>전국택배</p>
-          </div>
-        </div>
-        <div className='item-info'>
-          <div className='item-title'>[미노리키친] 규동 250g </div>
-          <div className='item-description'>일본인의 소울푸드! 한국인도 좋아하는 소고기덮밥</div>
-          <div className='item-price'>
-            <span className='price-del'>
-              <del>5,000</del>
-            </span>
-            <span className='price-sale'>
-              7,000<span className='price-unit'>원</span>
-            </span>
-          </div>
-          <div className='item-badge'>
-            <span>이벤트특가</span>
-          </div>
-        </div>
-      </div>
-    </Slider>
+        ))}
+      </Slider>
+    </div>
   );
 };
 
