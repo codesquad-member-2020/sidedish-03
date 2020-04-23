@@ -86,4 +86,9 @@ public class DishDto {
     public void setDetailSectionImages(List<String> detailSectionImages) {
         this.detailSectionImages = detailSectionImages;
     }
+
+    @Override
+    public String toString() {
+        return "DishDto{" + "topImage='" + topImage + '\'' + ", description='" + description + '\'' + ", point='" + point + '\'' + ", deliveryInfo='" + deliveryInfo + '\'' + ", deliveryFee='" + deliveryFee + '\'' + ", normalPrice='" + normalPrice + '\'' + ", salePrice='" + salePrice + '\'' + ", thumbImages=" + thumbImages + ", detailSectionImages=" + detailSectionImages + '}';
+    }
 }
