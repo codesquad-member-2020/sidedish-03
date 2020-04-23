@@ -7,31 +7,71 @@
 //
 
 import UIKit
-import SnapKit
 
-class PriceView: UIView {
+@IBDesignable
+class PriceView: UIStackView {
     
     // MARK: - IBOutlets
-    @IBOutlet weak var salePriceLabel: UILabel!
-    @IBOutlet weak var normalPriceLabel: UILabel!
-    
-    // MARK: - Properties
-    static var name: String = "PriceView"
+    private var normalPriceLabel: UILabel!
+    private var salePriceLabel: UILabel!
     
     // MARK: - Lifecycles
-    required init?(coder: NSCoder) {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        configure()
+    }
+    
+    required init(coder: NSCoder) {
         super.init(coder: coder)
         configure()
     }
     
-    func configure() {
-        guard let priceView = Bundle.main
-            .loadNibNamed(PriceView.name,
-                          owner: self,
-                          options: nil)?.first as? PriceView else { return }
-        addSubview(priceView)
-        priceView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
+    override func prepareForInterfaceBuilder() {
+        normalPriceLabel.attributedText = StrikeThroughMaker.apply("6,500")
+        salePriceLabel.text = "5,400원"
+    }
+    
+    // MARK: - Methods
+    func updatePrice(normal normalPrice: String, sale salePrice: String ) {
+        normalPriceLabel.attributedText = StrikeThroughMaker.apply(normalPrice)
+        salePriceLabel.text = salePrice
+    }
+    
+    private func configure() {
+        applySetting()
+        configureNormalPriceLabel()
+        configureSalePriceLabel()
+    }
+    
+    private func applySetting() {
+        axis = .horizontal
+        alignment = .center
+        distribution = .fillProportionally
+        spacing = 4
+    }
+    
+    private func configureNormalPriceLabel() {
+        normalPriceLabel = UILabel()
+        addArrangedSubview(normalPriceLabel)
+        configurePriceLabel(normalPriceLabel,
+                            font: UIFont.systemFont(ofSize: 11),
+                            alignment: .center,
+                            color: .lightGray)
+    }
+    
+    private func configureSalePriceLabel() {
+        salePriceLabel = UILabel()
+        addArrangedSubview(salePriceLabel)
+        configurePriceLabel(salePriceLabel,
+                            font: UIFont.boldSystemFont(ofSize: 13),
+                            alignment: .center,
+                            color: .systemTeal)
+        
+    }
+    
+    private func configurePriceLabel(_ label: UILabel, font: UIFont, alignment: NSTextAlignment, color: UIColor) {
+        label.font = font
+        label.textAlignment = alignment
+        label.textColor = color
     }
 }
