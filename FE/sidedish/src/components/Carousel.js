@@ -7,6 +7,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../style/carousel.scss';
 
+const onClickTargetID = async e => {
+  e.preventDefault();
+  const target = e.currentTarget;
+  const targetID = target.dataset.item;
+
+  const response = await axios.get(`${URL}detail/${targetID}`);
+  console.log(response.data);
+  return response.data;
+};
+
 const Carousel = props => {
   const getItem = async () => {
     const response = await axios.get(`${URL}${props.url}`);
@@ -32,7 +42,7 @@ const Carousel = props => {
       </p>
       <Slider {...settings}>
         {mainItem.body.map((item, index) => (
-          <div className='item' key={index} data-item={item.detail_hash}>
+          <div className='item' key={index} data-item={item.detail_hash} onClick={onClickTargetID}>
             <div className='item-thumb'>
               <img src={item.image} alt={item.alt} />
               <div className='hover-text'>
