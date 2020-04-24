@@ -4,6 +4,7 @@ import kr.codesquad.sidedish.business.dao.BestDishDao;
 import kr.codesquad.sidedish.business.dto.CategoryDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ public class BestDishService {
 
     private final BestDishDao bestDishDao;
 
-    public BestDishService(BestDishDao bestDishDao) {
+    public BestDishService(@Qualifier("bestDishDaoSolar") BestDishDao bestDishDao) {
         this.bestDishDao = bestDishDao;
     }
 
