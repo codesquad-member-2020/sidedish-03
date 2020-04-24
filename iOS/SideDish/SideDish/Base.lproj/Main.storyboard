@@ -96,7 +96,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAH-vR-HHI">
                                                 <rect key="frame" x="0.0" y="358.5" width="414" height="1600"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFi-BO-ccs" userLabel="I">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFi-BO-ccs" userLabel="ItemView">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="220"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[모이세] 육계장 1팩 (600)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ybU-2G-mUB">
@@ -182,7 +182,7 @@
                                                                     <constraint firstAttribute="height" constant="0.5" id="gDv-Ja-Zj1"/>
                                                                 </constraints>
                                                             </view>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-SN-XfN" customClass="PriceView" customModule="SideDish" customModuleProvider="target">
+                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-SN-XfN" customClass="PriceView" customModule="SideDish" customModuleProvider="target">
                                                                 <rect key="frame" x="318" y="85.5" width="80" height="17"/>
                                                             </stackView>
                                                         </subviews>
@@ -222,21 +222,20 @@
                                                             <constraint firstItem="ybU-2G-mUB" firstAttribute="top" secondItem="ZFi-BO-ccs" secondAttribute="top" constant="16" id="zAw-MK-JwL"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n5h-rf-QqM">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="aHi-rC-YDq">
                                                         <rect key="frame" x="0.0" y="220" width="414" height="1380"/>
-                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                    </view>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="n5h-rf-QqM" secondAttribute="bottom" id="3G1-pF-t7z"/>
+                                                    <constraint firstItem="aHi-rC-YDq" firstAttribute="top" secondItem="ZFi-BO-ccs" secondAttribute="bottom" id="8rF-qm-Jnw"/>
                                                     <constraint firstItem="ZFi-BO-ccs" firstAttribute="top" secondItem="WAH-vR-HHI" secondAttribute="top" id="BUv-nF-QUD"/>
-                                                    <constraint firstItem="n5h-rf-QqM" firstAttribute="leading" secondItem="WAH-vR-HHI" secondAttribute="leading" id="Lsn-l3-KCu"/>
-                                                    <constraint firstItem="n5h-rf-QqM" firstAttribute="top" secondItem="ZFi-BO-ccs" secondAttribute="bottom" id="Mot-ST-nGc"/>
-                                                    <constraint firstAttribute="trailing" secondItem="n5h-rf-QqM" secondAttribute="trailing" id="Oel-L6-nrG"/>
                                                     <constraint firstAttribute="height" constant="1600" id="R0S-pr-beM"/>
                                                     <constraint firstItem="ZFi-BO-ccs" firstAttribute="leading" secondItem="WAH-vR-HHI" secondAttribute="leading" id="TNC-zF-rSF"/>
                                                     <constraint firstAttribute="trailing" secondItem="ZFi-BO-ccs" secondAttribute="trailing" id="lx7-lK-fWc"/>
+                                                    <constraint firstItem="aHi-rC-YDq" firstAttribute="leading" secondItem="WAH-vR-HHI" secondAttribute="leading" id="nmo-Ch-BdJ"/>
+                                                    <constraint firstAttribute="bottom" secondItem="aHi-rC-YDq" secondAttribute="bottom" id="ucw-vP-ZdL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="aHi-rC-YDq" secondAttribute="trailing" id="z7F-0i-qsc"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnC-sf-NJr">
@@ -245,20 +244,19 @@
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7m-fj-Fnv">
                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
                                                         <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-cV-45b">
-                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="358.5"/>
-                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ey2-Es-gyB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="800" height="358.5"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="600" id="wAI-nF-Tah"/>
+                                                                    <constraint firstAttribute="width" constant="800" id="5B6-qO-BCg"/>
                                                                 </constraints>
-                                                            </view>
+                                                            </stackView>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="yrb-qn-cLI" firstAttribute="top" secondItem="qJ4-cV-45b" secondAttribute="top" id="URV-o2-YBj"/>
-                                                            <constraint firstItem="qJ4-cV-45b" firstAttribute="leading" secondItem="yrb-qn-cLI" secondAttribute="leading" id="mfg-jA-u5z"/>
-                                                            <constraint firstItem="qJ4-cV-45b" firstAttribute="bottom" secondItem="yrb-qn-cLI" secondAttribute="bottom" id="rrj-Iy-ijn"/>
-                                                            <constraint firstItem="qJ4-cV-45b" firstAttribute="trailing" secondItem="yrb-qn-cLI" secondAttribute="trailing" id="sVC-H4-FF0"/>
-                                                            <constraint firstItem="qJ4-cV-45b" firstAttribute="height" secondItem="vS2-wV-Ak6" secondAttribute="height" id="yTr-KR-3Ru"/>
+                                                            <constraint firstItem="ey2-Es-gyB" firstAttribute="leading" secondItem="yrb-qn-cLI" secondAttribute="leading" id="2W9-yO-aH8"/>
+                                                            <constraint firstItem="ey2-Es-gyB" firstAttribute="bottom" secondItem="yrb-qn-cLI" secondAttribute="bottom" id="3a2-bL-7jg"/>
+                                                            <constraint firstItem="ey2-Es-gyB" firstAttribute="height" secondItem="vS2-wV-Ak6" secondAttribute="height" id="BqJ-kO-eyQ"/>
+                                                            <constraint firstItem="ey2-Es-gyB" firstAttribute="trailing" secondItem="yrb-qn-cLI" secondAttribute="trailing" id="aHo-fx-3Ur"/>
+                                                            <constraint firstItem="ey2-Es-gyB" firstAttribute="top" secondItem="yrb-qn-cLI" secondAttribute="top" id="cwI-uN-9Xs"/>
                                                         </constraints>
                                                         <viewLayoutGuide key="contentLayoutGuide" id="yrb-qn-cLI"/>
                                                         <viewLayoutGuide key="frameLayoutGuide" id="vS2-wV-Ak6"/>
@@ -321,13 +319,14 @@
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="dm1-er-zVU" id="cNS-Ze-9Y4"/>
-                        <outlet property="detailView" destination="n5h-rf-QqM" id="pVt-6z-mwS"/>
+                        <outlet property="detailStackView" destination="aHi-rC-YDq" id="Lgd-zS-cKp"/>
                         <outlet property="foodInformationView" destination="ZFi-BO-ccs" id="D42-tp-qO2"/>
+                        <outlet property="itemView" destination="ZFi-BO-ccs" id="6FG-dE-GD3"/>
                         <outlet property="mainScrollViewHeightConstraint" destination="R0S-pr-beM" id="eZm-Zj-W0E"/>
                         <outlet property="pointLabel" destination="ZBZ-AT-K9D" id="Z9R-by-85N"/>
                         <outlet property="priceView" destination="3bp-SN-XfN" id="YVQ-6p-WWA"/>
-                        <outlet property="thumbnailView" destination="qJ4-cV-45b" id="Kl0-1w-fKs"/>
-                        <outlet property="thumbnailViewWidthConstraint" destination="wAI-nF-Tah" id="n1i-f8-x96"/>
+                        <outlet property="thumbnailScrollViewWidthConstraint" destination="5B6-qO-BCg" id="lpT-ar-zJV"/>
+                        <outlet property="thumbnailStackView" destination="ey2-Es-gyB" id="yON-EX-a1i"/>
                         <outlet property="titleLabel" destination="ybU-2G-mUB" id="6hG-aJ-rYx"/>
                         <outlet property="transportFee" destination="uKA-T5-bcj" id="9w9-t9-b7r"/>
                         <outlet property="transportInformation" destination="g4s-69-JWt" id="whO-gp-8v4"/>
