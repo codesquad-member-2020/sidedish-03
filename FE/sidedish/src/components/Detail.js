@@ -18,28 +18,66 @@ const Mask = styled.div`
   .detail-wrap {
     overflow-y: auto;
     width: 800px;
-    height: 100%;
+    height: calc(100% - 100px);
+    padding: 20px;
+    margin: 50px 0;
     background: #fff;
+  }
+  .detail-head {
+    display: flex;
+    > div {
+      width: 50%;
+    }
+  }
+  .detail-thumb {
+    .thumb {
+      img {
+        margin: 0 auto;
+      }
+    }
+    .slick-arrow {
+      margin-top: -66px;
+    }
+    .slick-prev {
+      left: 0;
+    }
+    .slick-next {
+      right: 0;
+    }
+    .slick-dots {
+      position: relative;
+      bottom: 0;
+      margin-top: 15px;
+      li {
+        width: 80px;
+        height: 80px;
+        img {
+          opacity: 0.6;
+        }
+        &.slick-active {
+          outline: 3px solid #2ac1bc;
+          img {
+            opacity: 1;
+          }
+        }
+      }
+    }
   }
 `;
 
 const Detail = props => {
   console.log(props.data.item.data);
   const settings = {
-    customPaging: function(i) {
-      return (
-        <a>
-          <img src={`${props.data.item.data.thumb_images[i]}`} />
-        </a>
-      );
+    customPaging: function (i) {
+      return <img src={`${props.data.item.data.thumb_images[i]}`} />;
     },
     dots: true,
-    dotsClass: "slick-dots slick-thumb",
+    dotsClass: 'slick-dots slick-thumb',
     infinite: true,
     speed: 500,
     slidesToShow: 1,
-    slidesToScroll: 1
-  }
+    slidesToScroll: 1,
+  };
   return (
     <Mask className='mask'>
       <div className='detail-wrap'>
