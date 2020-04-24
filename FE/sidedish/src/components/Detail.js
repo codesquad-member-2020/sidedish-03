@@ -177,7 +177,7 @@ const Mask = styled.div`
     }
   }
   .price {
-    padding: 10px 0;
+    padding: 5px 0 0;
     text-align: right;
     .item-price {
       font-weight: bold;
