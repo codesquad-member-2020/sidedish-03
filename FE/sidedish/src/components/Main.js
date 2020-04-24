@@ -8,10 +8,19 @@ const MainStyled = styled.div`
 `;
 
 const Main = () => {
-  const [ detail, setDetail] = useState(null);
-  const onClickDetailItem = (item,title) => {
-    setDetail({item,title});
+  const [detail, setDetail] = useState(null);
+  const [detailVisible, setDetailVisible] = useState(false);
+  const onClickDetailItem = (item, title) => {
+    setDetail({ item, title });
   };
+  const onclickClose = () => {
+    setDetailVisible(true);
+    setTimeout(() => {
+      setDetailVisible(false);
+      setDetail(null);
+    }, 300);
+  };
+
   return (
     <MainStyled>
       <div className='inner'>
@@ -19,7 +28,7 @@ const Main = () => {
         <Carousel url='soup' onClickHandler={onClickDetailItem} />
         <Carousel url='side' onClickHandler={onClickDetailItem} />
       </div>
-      {!detail ?  '' : <Detail data={detail}/>}
+      {!detail ? '' : <Detail data={detail} onClickHandler={onclickClose} disappear={detailVisible} />}
     </MainStyled>
   );
 };

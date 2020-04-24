@@ -1,9 +1,65 @@
 import React from 'react';
-import styled from 'styled-components';
+import { IoMdClose } from 'react-icons/io';
+import styled, { keyframes, css } from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+const fadeIn = keyframes`
+  from { 
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from { 
+    opacity: 1;
+  }
+  to{
+    opacity: 0;
+  }
+`;
+
+const slideUp = keyframes`
+  from{
+    transform: translateY(50px);
+  }
+  to{
+    transform: translateY(0px);
+  }
+`;
+
+const slideDown = keyframes`
+  from{
+    transform: translateY(0px);
+  }
+  to{
+    transform: translateY(50px);
+  }
+`;
+const CloseButtn = styled.div`
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  cursor: pointer;
+  animation-duration: 0.35s;
+  animation-timing-function: ease-out;
+  animation-name: ${fadeIn};
+  animation-fill-mode: forwards;
+  svg {
+    pointer-events: none;
+    transition: 0.125s all ease-in;
+  }
+  &:hover {
+    svg {
+      fill: #2ac1bc;
+      transform: rotate(90deg);
+    }
+  }
+`;
 const Mask = styled.div`
   display: flex;
   justify-content: center;
@@ -13,8 +69,17 @@ const Mask = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: #f7f9fa;
+  background: rgba(247, 249, 250, 0.95);
   z-index: 100;
+  animation-duration: 0.25s;
+  animation-timing-function: ease-out;
+  animation-name: ${fadeIn};
+  animation-fill-mode: forwards;
+  ${props =>
+    props.disappear &&
+    css`
+      animation-name: ${fadeOut};
+    `}
   .detail-wrap {
     overflow-y: auto;
     width: 800px;
@@ -22,6 +87,15 @@ const Mask = styled.div`
     padding: 20px;
     margin: 50px 0;
     background: #fff;
+    animation-duration: 0.25s;
+    animation-timing-function: ease-out;
+    animation-name: ${slideUp};
+    animation-fill-mode: forwards;
+    ${props =>
+    props.disappear &&
+    css`
+      animation-name: ${slideDown};
+    `}
   }
   .detail-head {
     display: flex;
@@ -66,7 +140,12 @@ const Mask = styled.div`
 `;
 
 const Detail = props => {
-  console.log(props.data.item.data);
+  // console.log(props.data.item.data);
+  console.log(props.disappear)
+  const close = e => {
+    const target = e.currentTarget;
+    return props.onClickHandler(target);
+  };
   const settings = {
     customPaging: function (i) {
       return <img src={`${props.data.item.data.thumb_images[i]}`} />;
@@ -79,7 +158,7 @@ const Detail = props => {
     slidesToScroll: 1,
   };
   return (
-    <Mask className='mask'>
+    <Mask className='mask' disappear={props.disappear}>
       <div className='detail-wrap'>
         <div className='detail-head'>
           <Slider {...settings} className='detail-thumb'>
@@ -114,6 +193,9 @@ const Detail = props => {
         </div>
         <div className='detail-body'></div>
       </div>
+      <CloseButtn className='btn-close' onClick={close}>
+        <IoMdClose size='50' color='#bfbfbf' />
+      </CloseButtn>
     </Mask>
   );
 };
