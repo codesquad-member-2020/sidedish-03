@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IoMdClose } from 'react-icons/io';
 import styled, { keyframes, css } from 'styled-components';
 import Slider from 'react-slick';
@@ -59,6 +59,11 @@ const CloseButtn = styled.div`
       transform: rotate(90deg);
     }
   }
+  &:active {
+    svg {
+      fill: #0e8b87;
+    }
+  }
 `;
 const Mask = styled.div`
   display: flex;
@@ -92,10 +97,10 @@ const Mask = styled.div`
     animation-name: ${slideUp};
     animation-fill-mode: forwards;
     ${props =>
-    props.disappear &&
-    css`
-      animation-name: ${slideDown};
-    `}
+      props.disappear &&
+      css`
+        animation-name: ${slideDown};
+      `}
   }
   .detail-head {
     display: flex;
@@ -113,10 +118,10 @@ const Mask = styled.div`
       margin-top: -66px;
     }
     .slick-prev {
-      left: 0;
+      left: 10px;
     }
     .slick-next {
-      right: 0;
+      right: 10px;
     }
     .slick-dots {
       position: relative;
@@ -137,18 +142,153 @@ const Mask = styled.div`
       }
     }
   }
+  .detail-info {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 10px;
+    .title {
+      margin-bottom: 10px;
+      font-weight: bold;
+      font-size: 26px;
+      line-height: 1.3;
+      letter-spacing: -1px;
+    }
+    .description {
+      margin-bottom: 20px;
+      font-weight: 300;
+      font-size: 14px;
+      color: #888;
+    }
+    .table {
+      > div {
+        display: table;
+        margin: 10px 0;
+        span {
+          display: table-cell;
+          line-height: 1.3;
+          font-weight: 300;
+          color: #888;
+        }
+        span:first-child {
+          width: 100px;
+          color: #111;
+        }
+      }
+    }
+  }
+  .price {
+    padding: 10px 0;
+    text-align: right;
+    .item-price {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+  .quantity {
+    padding: 15px 0;
+    margin: 15px 0;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    .quantity-box {
+      position: relative;
+      button,
+      input {
+        border: 0;
+        text-align: center;
+      }
+      input {
+        width: 100%;
+        height: 40px;
+        font-weight: bold;
+        font-size: 24px;
+        border: 1px solid #e0e0e0;
+        border-radius: 50px;
+      }
+      button {
+        position: absolute;
+        top: 50%;
+        width: 40px;
+        height: 40px;
+        margin-top: -22px;
+        font-size: 30px;
+        line-height: 0;
+        background: transparent;
+        z-index: 1;
+        cursor: pointer;
+        &.btn-minus {
+          left: 5px;
+        }
+        &.btn-plus {
+          right: 5px;
+        }
+        &:focus,
+        &:hover {
+          outline: none;
+        }
+      }
+    }
+  }
+  .total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .tit {
+      margin-bottom: 0;
+    }
+    .total-price {
+      span {
+        margin-right: 2px;
+        font-size: 24px;
+      }
+      font-weight: bold;
+      font-size: 18px;
+      color: #2ac1bc;
+    }
+  }
+  .tit {
+    margin-bottom: 10px;
+    font-size: 16px;
+    letter-spacing: -1px;
+  }
+  .btn-wrap {
+    margin-top: auto;
+    button {
+      width: 100%;
+      height: 50px;
+      font-size: 24px;
+      color: #fff;
+      border: 0;
+      background: #2ac1bc;
+    }
+  }
 `;
 
 const Detail = props => {
-  // console.log(props.data.item.data);
-  console.log(props.disappear)
+  console.log(props.data.item.data);
+
+  const setPrice = parseInt(props.data.item.data.prices[0].replace(',', ''));
+  const [quantity, setQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(setPrice);
   const close = e => {
     const target = e.currentTarget;
     return props.onClickHandler(target);
   };
+  const onIncrease = () => {
+    setQuantity(prevQuantity => prevQuantity + 1);
+    return setTotalPrice(setPrice * (quantity + 1));
+  };
+  const onDecrease = () => {
+    if (quantity === 1) return;
+    setQuantity(prevQuantity => prevQuantity - 1);
+    return setTotalPrice(prevPrice => prevPrice - setPrice);
+  };
+  const priceCommas = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
   const settings = {
     customPaging: function (i) {
-      return <img src={`${props.data.item.data.thumb_images[i]}`} />;
+      return <img src={`${props.data.item.data.thumb_images[i]}`} alt={props.data.title} />;
     },
     dots: true,
     dotsClass: 'slick-dots slick-thumb',
@@ -164,7 +304,7 @@ const Detail = props => {
           <Slider {...settings} className='detail-thumb'>
             {props.data.item.data.thumb_images.map((img, index) => (
               <div className='thumb' key={index}>
-                <img src={img} />
+                <img src={img} alt={props.data.title} />
               </div>
             ))}
           </Slider>
@@ -186,9 +326,30 @@ const Detail = props => {
                 <span>{props.data.item.data.delivery_fee}</span>
               </div>
             </div>
-            <div className='quantity'></div>
-            <div className='total'></div>
-            <div className='btn'></div>
+            <div className='price'>
+              <div className='item-price'>{props.data.item.data.prices[0]}</div>
+            </div>
+            <div className='quantity'>
+              <p className='tit'>수량 선택</p>
+              <div className='quantity-box'>
+                <button className='btn-minus' onClick={onIncrease}>
+                  +
+                </button>
+                <input type='number' className='inp-qty' value={quantity} readOnly />
+                <button className='btn-plus' onClick={onDecrease}>
+                  -
+                </button>
+              </div>
+            </div>
+            <div className='total'>
+              <p className='tit'>총 금액</p>
+              <div className='total-price'>
+                <span>{priceCommas(totalPrice)}</span>원
+              </div>
+            </div>
+            <div className='btn-wrap'>
+              <button>담기</button>
+            </div>
           </div>
         </div>
         <div className='detail-body'></div>
