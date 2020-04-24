@@ -1,7 +1,6 @@
 package kr.codesquad.sidedish.business.service;
 
 import kr.codesquad.sidedish.business.dao.FoodTypeDao;
-import kr.codesquad.sidedish.business.dto.DishOverviewDto;
 import kr.codesquad.sidedish.business.dto.FoodTypeDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,7 +23,7 @@ public class FoodTypeService {
         return foodTypeDao.findAllFoodType();
     }
 
-    public List<DishOverviewDto> findDishesByFoodTypeId(Long foodTypeId) {
+    public FoodTypeDto findDishesByFoodTypeId(Long foodTypeId) {
         return foodTypeDao.findDishesByFoodTypeId(foodTypeId);
     }
 }

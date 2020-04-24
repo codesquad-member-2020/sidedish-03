@@ -1,6 +1,5 @@
 package kr.codesquad.sidedish.business.controller;
 
-import kr.codesquad.sidedish.business.dto.DishOverviewDto;
 import kr.codesquad.sidedish.business.dto.FoodTypeDto;
 import kr.codesquad.sidedish.business.service.FoodTypeService;
 import org.slf4j.Logger;
@@ -29,7 +28,7 @@ public class FoodTypeController {
     }
 
     @GetMapping("/{foodtypeId}")
-    public List<DishOverviewDto> showDishesInFoodType(@PathVariable Long foodtypeId) {
+    public FoodTypeDto showDishesInFoodType(@PathVariable Long foodtypeId) {
         return foodTypeService.findDishesByFoodTypeId(foodtypeId);
     }
 }

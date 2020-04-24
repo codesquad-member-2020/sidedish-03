@@ -48,6 +48,14 @@ SELECT id
  WHERE 1 = 1;
 """
 
+const val FOOD_TYPE_SQL: String = """
+SELECT id
+     , name
+     , description
+  FROM food_type
+ WHERE id = :id;
+"""
+
 const val DISH_OVERVIEW_SQL: String = """
 SELECT sd.id
      , i.url AS main_image
