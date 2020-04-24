@@ -4,8 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDto {
+    private Long categoryId;
     private String categoryName;
     private List<DishOverviewDto> items = new ArrayList<>();
+
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
 
     public String getCategoryName() {
         return categoryName;
@@ -25,6 +34,6 @@ public class CategoryDto {
 
     @Override
     public String toString() {
-        return "CategoryDto{" + "categoryName='" + categoryName + '\'' + ", items=" + items + '}';
+        return "CategoryDto{" + "categoryId=" + categoryId + ", categoryName='" + categoryName + '\'' + ", items=" + items + '}';
     }
 }
