@@ -14,7 +14,9 @@ public enum ErrorCode {
     // Dish
     DISH_NOT_FOUND(404, "D001", " 해당 반찬은 존재하지 않아요!"),
     // FoodType
-    FOOD_TYPE_NOT_FOUND(404, "FT001", "해당 음식종류는 존재하지 않아요!")
+    FOOD_TYPE_NOT_FOUND(404, "FT001", "해당 음식종류는 존재하지 않아요!"),
+    // Category
+    CATEGORY_NOT_FOUND(404, "C001", "해당 베스트 반찬 목록은 존재하지 않아요!")
     ;
 
     private final String code;
