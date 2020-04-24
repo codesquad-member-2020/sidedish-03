@@ -7,17 +7,16 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../style/carousel.scss';
 
-const onClickTargetID = async e => {
-  e.preventDefault();
-  const target = e.currentTarget;
-  const targetID = target.dataset.item;
-
-  const response = await axios.get(`${URL}detail/${targetID}`);
-  console.log(response.data);
-  return response.data;
-};
-
 const Carousel = props => {
+  const onClickTargetID = async e => {
+    e.preventDefault();
+    const target = e.currentTarget;
+    const targetID = target.dataset.item;
+    const targetTitle = target.querySelector('.item-title').innerHTML;
+    const response = await axios.get(`${URL}detail/${targetID}`);
+    return props.onClickHandler(response.data, targetTitle);
+  };
+
   const getItem = async () => {
     const response = await axios.get(`${URL}${props.url}`);
     return response.data;
