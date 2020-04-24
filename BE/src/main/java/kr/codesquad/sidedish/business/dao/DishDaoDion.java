@@ -33,7 +33,7 @@ public class DishDaoDion implements DishDao {
     @Override
     public DishDto findDishById(Long id) {
         log.debug("id: {}", id);
-        SqlParameterSource parameters = new MapSqlParameterSource().addValue("id", id);
+        SqlParameterSource parameters = new MapSqlParameterSource("id", id);
 
         DishDto dishDto = namedParameterJdbcTemplate.queryForOptionalObject(DISH_DETAIL_SQL, parameters, dishDtoMapper).orElseThrow(DishNotFoundException::new);
         dishDto.setThumbImages(namedParameterJdbcTemplate.queryForList(THUMB_IMAGE_SQL, parameters, String.class));
