@@ -3,10 +3,6 @@ import styled from 'styled-components';
 import Carousel from './Carousel';
 import Detail from './Detail';
 
-const MainStyled = styled.div`
-  min-height: 600px;
-`;
-
 const Main = () => {
   const [detail, setDetail] = useState(null);
   const [detailVisible, setDetailVisible] = useState(false);
@@ -32,5 +28,9 @@ const Main = () => {
     </MainStyled>
   );
 };
+
+const MainStyled = styled.div`
+  min-height: 600px;
+`;
 
 export default Main;

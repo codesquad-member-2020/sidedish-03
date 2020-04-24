@@ -5,6 +5,111 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+const Detail = props => {
+  console.log(props.data.item.data);
+  const propsData = props.data.item.data;
+  const setPrice = parseInt(propsData.prices[0].replace(',', ''));
+  const [quantity, setQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState(setPrice);
+  const close = e => {
+    const target = e.currentTarget;
+    return props.onClickHandler(target);
+  };
+  const onIncrease = () => {
+    setQuantity(prevQuantity => prevQuantity + 1);
+    return setTotalPrice(setPrice * (quantity + 1));
+  };
+  const onDecrease = () => {
+    if (quantity === 1) return;
+    setQuantity(prevQuantity => prevQuantity - 1);
+    return setTotalPrice(prevPrice => prevPrice - setPrice);
+  };
+  const priceCommas = price => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  const settings = {
+    customPaging: function (i) {
+      return <img src={`${propsData.thumb_images[i]}`} alt={props.data.title} />;
+    },
+    dots: true,
+    dotsClass: 'slick-dots slick-thumb',
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+  return (
+    <Mask className='mask' disappear={props.disappear}>
+      <div className='detail-wrap'>
+        <div className='detail-head'>
+          <Slider {...settings} className='detail-thumb'>
+            {propsData.thumb_images.map((img, index) => (
+              <div className='thumb' key={index}>
+                <img src={img} alt={props.data.title} />
+              </div>
+            ))}
+          </Slider>
+          <div className='detail-info'>
+            <div className='badge'></div>
+            <h3 className='title'>{props.data.title}</h3>
+            <p className='description'>{propsData.product_description}</p>
+            <div className='table'>
+              <div>
+                <span>적립금</span>
+                <span>{propsData.point}</span>
+              </div>
+              <div>
+                <span>배송정보</span>
+                <span>{propsData.delivery_info}</span>
+              </div>
+              <div>
+                <span>배송비</span>
+                <span>{propsData.delivery_fee}</span>
+              </div>
+            </div>
+            <div className='price'>
+              <div className='item-price'>{propsData.prices[0]}</div>
+            </div>
+            <div className='quantity'>
+              <p className='tit'>수량 선택</p>
+              <div className='quantity-box'>
+                <button className='btn-minus' onClick={onIncrease}>
+                  +
+                </button>
+                <input type='number' className='inp-qty' value={quantity} readOnly />
+                <button className='btn-plus' onClick={onDecrease}>
+                  -
+                </button>
+              </div>
+            </div>
+            <div className='total'>
+              <p className='tit'>총 금액</p>
+              <div className='total-price'>
+                <span>{priceCommas(totalPrice)}</span>원
+              </div>
+            </div>
+            <div className='btn-wrap'>
+              <button>담기</button>
+            </div>
+          </div>
+        </div>
+        <div className='detail-body'>
+          <h3>상세정보</h3>
+          {propsData.detail_section.map((item, index) => (
+            <p key={index}>
+              <img src={item} alt={props.data.title} />
+            </p>
+          ))}
+        </div>
+      </div>
+      <CloseButtn className='btn-close' onClick={close}>
+        <IoMdClose size='50' color='#bfbfbf' />
+      </CloseButtn>
+    </Mask>
+  );
+};
+
 const fadeIn = keyframes`
   from { 
     opacity: 0;
@@ -40,6 +145,7 @@ const slideDown = keyframes`
     transform: translateY(50px);
   }
 `;
+
 const CloseButtn = styled.div`
   position: absolute;
   top: 50px;
@@ -65,6 +171,7 @@ const CloseButtn = styled.div`
     }
   }
 `;
+
 const Mask = styled.div`
   display: flex;
   justify-content: center;
@@ -93,7 +200,7 @@ const Mask = styled.div`
     margin: 50px 0;
     border: 1px solid #eee;
     background: #fff;
-    box-shadow: 0 2px 5px rgba(27,31,35,0.1);
+    box-shadow: 0 2px 5px rgba(27, 31, 35, 0.1);
     animation-duration: 0.25s;
     animation-timing-function: ease-out;
     animation-name: ${slideUp};
@@ -277,7 +384,7 @@ const Mask = styled.div`
   }
   .detail-body {
     margin-top: 50px;
-    h3{
+    h3 {
       position: relative;
       padding: 15px 10px;
       font-weight: normal;
@@ -292,115 +399,10 @@ const Mask = styled.div`
         bottom: 0;
         width: 150px;
         height: 1px;
-        background: #2ac1bc
+        background: #2ac1bc;
       }
     }
   }
 `;
-
-const Detail = props => {
-  console.log(props.data.item.data);
-  const propsData = props.data.item.data;
-  const setPrice = parseInt(propsData.prices[0].replace(',', ''));
-  const [quantity, setQuantity] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(setPrice);
-  const close = e => {
-    const target = e.currentTarget;
-    return props.onClickHandler(target);
-  };
-  const onIncrease = () => {
-    setQuantity(prevQuantity => prevQuantity + 1);
-    return setTotalPrice(setPrice * (quantity + 1));
-  };
-  const onDecrease = () => {
-    if (quantity === 1) return;
-    setQuantity(prevQuantity => prevQuantity - 1);
-    return setTotalPrice(prevPrice => prevPrice - setPrice);
-  };
-  const priceCommas = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
-  const settings = {
-    customPaging: function (i) {
-      return <img src={`${propsData.thumb_images[i]}`} alt={props.data.title} />;
-    },
-    dots: true,
-    dotsClass: 'slick-dots slick-thumb',
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  return (
-    <Mask className='mask' disappear={props.disappear}>
-      <div className='detail-wrap'>
-        <div className='detail-head'>
-          <Slider {...settings} className='detail-thumb'>
-            {propsData.thumb_images.map((img, index) => (
-              <div className='thumb' key={index}>
-                <img src={img} alt={props.data.title} />
-              </div>
-            ))}
-          </Slider>
-          <div className='detail-info'>
-            <div className='badge'></div>
-            <h3 className='title'>{props.data.title}</h3>
-            <p className='description'>{propsData.product_description}</p>
-            <div className='table'>
-              <div>
-                <span>적립금</span>
-                <span>{propsData.point}</span>
-              </div>
-              <div>
-                <span>배송정보</span>
-                <span>{propsData.delivery_info}</span>
-              </div>
-              <div>
-                <span>배송비</span>
-                <span>{propsData.delivery_fee}</span>
-              </div>
-            </div>
-            <div className='price'>
-              <div className='item-price'>{propsData.prices[0]}</div>
-            </div>
-            <div className='quantity'>
-              <p className='tit'>수량 선택</p>
-              <div className='quantity-box'>
-                <button className='btn-minus' onClick={onIncrease}>
-                  +
-                </button>
-                <input type='number' className='inp-qty' value={quantity} readOnly />
-                <button className='btn-plus' onClick={onDecrease}>
-                  -
-                </button>
-              </div>
-            </div>
-            <div className='total'>
-              <p className='tit'>총 금액</p>
-              <div className='total-price'>
-                <span>{priceCommas(totalPrice)}</span>원
-              </div>
-            </div>
-            <div className='btn-wrap'>
-              <button>담기</button>
-            </div>
-          </div>
-        </div>
-        <div className='detail-body'>
-          <h3>상세정보</h3>
-          {propsData.detail_section.map((item, index) => (
-            <p key={index}>
-              <img src={item} alt={props.data.title} />
-            </p>
-          ))}
-        </div>
-      </div>
-      <CloseButtn className='btn-close' onClick={close}>
-        <IoMdClose size='50' color='#bfbfbf' />
-      </CloseButtn>
-    </Mask>
-  );
-};
 
 export default Detail;
