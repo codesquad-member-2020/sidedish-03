@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainMenuTableViewCell: UITableViewCell {
+final class MainMenuTableViewCell: UITableViewCell {
     
     // MARK: - IBOutlets
     @IBOutlet weak var foodImageView: UIImageView!

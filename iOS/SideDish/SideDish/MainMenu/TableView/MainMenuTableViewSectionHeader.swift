@@ -18,7 +18,7 @@ extension CALayer {
     static var categoryWidth: CGFloat = 1
 }
 
-class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
+final class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
     
     // MARK: - IBOutlets
     private var colorView: UIView = {

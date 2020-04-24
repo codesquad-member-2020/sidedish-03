@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class PriceView: UIStackView {
+final class PriceView: UIStackView {
     
     // MARK: - IBOutlets
     private var normalPriceLabel: UILabel!
@@ -27,6 +27,7 @@ class PriceView: UIStackView {
     }
     
     override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
         normalPriceLabel.attributedText = StrikeThroughMaker.apply("6,500")
         salePriceLabel.text = "5,400원"
     }
