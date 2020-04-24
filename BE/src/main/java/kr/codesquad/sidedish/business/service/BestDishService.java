@@ -15,11 +15,15 @@ public class BestDishService {
 
     private final BestDishDao bestDishDao;
 
-    public BestDishService(@Qualifier("bestDishDaoSolar") BestDishDao bestDishDao) {
+    public BestDishService(@Qualifier("bestDishDaoDion") BestDishDao bestDishDao) {
         this.bestDishDao = bestDishDao;
     }
 
     public List<CategoryDto> findBestDishes() {
         return bestDishDao.findBestDishes();
+    }
+
+    public CategoryDto findBestDish(Long categoryId) {
+        return bestDishDao.findBestDish(categoryId);
     }
 }

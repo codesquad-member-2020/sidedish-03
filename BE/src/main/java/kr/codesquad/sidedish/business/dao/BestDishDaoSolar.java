@@ -11,4 +11,9 @@ public class BestDishDaoSolar implements BestDishDao {
     public List<CategoryDto> findBestDishes() {
         return null;
     }
+
+    @Override
+    public CategoryDto findBestDish(Long categoryId) {
+        return null;
+    }
 }

@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface BestDishDao {
     List<CategoryDto> findBestDishes();
+
+    CategoryDto findBestDish(Long categoryId);
 }
