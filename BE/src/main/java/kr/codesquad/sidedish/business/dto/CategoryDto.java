@@ -22,4 +22,9 @@ public class CategoryDto {
     public void setItems(List<DishOverviewDto> items) {
         this.items = items;
     }
+
+    @Override
+    public String toString() {
+        return "CategoryDto{" + "categoryName='" + categoryName + '\'' + ", items=" + items + '}';
+    }
 }
