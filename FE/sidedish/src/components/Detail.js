@@ -91,7 +91,9 @@ const Mask = styled.div`
     height: calc(100% - 100px);
     padding: 20px;
     margin: 50px 0;
+    border: 1px solid #eee;
     background: #fff;
+    box-shadow: 0 2px 5px rgba(27,31,35,0.1);
     animation-duration: 0.25s;
     animation-timing-function: ease-out;
     animation-name: ${slideUp};
@@ -145,19 +147,20 @@ const Mask = styled.div`
   .detail-info {
     display: flex;
     flex-direction: column;
-    padding: 5px 10px;
+    padding: 0 10px;
     .title {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       font-weight: bold;
       font-size: 26px;
       line-height: 1.3;
       letter-spacing: -1px;
     }
     .description {
-      margin-bottom: 20px;
+      margin-bottom: 5px;
       font-weight: 300;
       font-size: 14px;
       color: #888;
+      line-height: 1.3;
     }
     .table {
       > div {
@@ -259,14 +262,46 @@ const Mask = styled.div`
       color: #fff;
       border: 0;
       background: #2ac1bc;
+      transition: 0.125s all ease-in;
+      cursor: pointer;
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        background: #30cec8;
+      }
+      &:active {
+        background: #0e8b87;
+      }
+    }
+  }
+  .detail-body {
+    margin-top: 50px;
+    h3{
+      position: relative;
+      padding: 15px 10px;
+      font-weight: normal;
+      font-size: 16px;
+      color: #666;
+      border-bottom: 1px solid #ccc;
+      background: #f6f6f6;
+      &::before {
+        /* content: ''; */
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 150px;
+        height: 1px;
+        background: #2ac1bc
+      }
     }
   }
 `;
 
 const Detail = props => {
   console.log(props.data.item.data);
-
-  const setPrice = parseInt(props.data.item.data.prices[0].replace(',', ''));
+  const propsData = props.data.item.data;
+  const setPrice = parseInt(propsData.prices[0].replace(',', ''));
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(setPrice);
   const close = e => {
@@ -288,7 +323,7 @@ const Detail = props => {
 
   const settings = {
     customPaging: function (i) {
-      return <img src={`${props.data.item.data.thumb_images[i]}`} alt={props.data.title} />;
+      return <img src={`${propsData.thumb_images[i]}`} alt={props.data.title} />;
     },
     dots: true,
     dotsClass: 'slick-dots slick-thumb',
@@ -302,7 +337,7 @@ const Detail = props => {
       <div className='detail-wrap'>
         <div className='detail-head'>
           <Slider {...settings} className='detail-thumb'>
-            {props.data.item.data.thumb_images.map((img, index) => (
+            {propsData.thumb_images.map((img, index) => (
               <div className='thumb' key={index}>
                 <img src={img} alt={props.data.title} />
               </div>
@@ -311,23 +346,23 @@ const Detail = props => {
           <div className='detail-info'>
             <div className='badge'></div>
             <h3 className='title'>{props.data.title}</h3>
-            <p className='description'>{props.data.item.data.product_description}</p>
+            <p className='description'>{propsData.product_description}</p>
             <div className='table'>
               <div>
                 <span>적립금</span>
-                <span>{props.data.item.data.point}</span>
+                <span>{propsData.point}</span>
               </div>
               <div>
                 <span>배송정보</span>
-                <span>{props.data.item.data.delivery_info}</span>
+                <span>{propsData.delivery_info}</span>
               </div>
               <div>
                 <span>배송비</span>
-                <span>{props.data.item.data.delivery_fee}</span>
+                <span>{propsData.delivery_fee}</span>
               </div>
             </div>
             <div className='price'>
-              <div className='item-price'>{props.data.item.data.prices[0]}</div>
+              <div className='item-price'>{propsData.prices[0]}</div>
             </div>
             <div className='quantity'>
               <p className='tit'>수량 선택</p>
@@ -352,7 +387,14 @@ const Detail = props => {
             </div>
           </div>
         </div>
-        <div className='detail-body'></div>
+        <div className='detail-body'>
+          <h3>상세정보</h3>
+          {propsData.detail_section.map((item, index) => (
+            <p key={index}>
+              <img src={item} alt={props.data.title} />
+            </p>
+          ))}
+        </div>
       </div>
       <CloseButtn className='btn-close' onClick={close}>
         <IoMdClose size='50' color='#bfbfbf' />
