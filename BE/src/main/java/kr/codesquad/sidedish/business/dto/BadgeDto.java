@@ -19,4 +19,9 @@ public class BadgeDto {
     public void setColor(String color) {
         this.color = color;
     }
+
+    @Override
+    public String toString() {
+        return "BadgeDto{" + "name='" + name + '\'' + ", color='" + color + '\'' + '}';
+    }
 }
