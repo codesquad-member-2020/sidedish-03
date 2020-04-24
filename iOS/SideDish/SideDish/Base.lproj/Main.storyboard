@@ -42,7 +42,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q4d-v9-i7Z" customClass="PriceView" customModule="SideDish" customModuleProvider="target">
-                                            <rect key="frame" x="245" y="52.5" width="78" height="16"/>
+                                            <rect key="frame" x="245" y="52.5" width="80" height="16"/>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -93,9 +93,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkc-fR-33O">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1958.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnC-sf-NJr">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAH-vR-HHI">
                                                 <rect key="frame" x="0.0" y="358.5" width="414" height="1600"/>
                                                 <subviews>
@@ -186,7 +183,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bp-SN-XfN" customClass="PriceView" customModule="SideDish" customModuleProvider="target">
-                                                                <rect key="frame" x="320" y="85.5" width="78" height="17"/>
+                                                                <rect key="frame" x="318" y="85.5" width="80" height="17"/>
                                                             </stackView>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -242,6 +239,38 @@
                                                     <constraint firstAttribute="trailing" secondItem="ZFi-BO-ccs" secondAttribute="trailing" id="lx7-lK-fWc"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jnC-sf-NJr">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
+                                                <subviews>
+                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T7m-fj-Fnv">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="358.5"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qJ4-cV-45b">
+                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="358.5"/>
+                                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="600" id="wAI-nF-Tah"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="yrb-qn-cLI" firstAttribute="top" secondItem="qJ4-cV-45b" secondAttribute="top" id="URV-o2-YBj"/>
+                                                            <constraint firstItem="qJ4-cV-45b" firstAttribute="leading" secondItem="yrb-qn-cLI" secondAttribute="leading" id="mfg-jA-u5z"/>
+                                                            <constraint firstItem="qJ4-cV-45b" firstAttribute="bottom" secondItem="yrb-qn-cLI" secondAttribute="bottom" id="rrj-Iy-ijn"/>
+                                                            <constraint firstItem="qJ4-cV-45b" firstAttribute="trailing" secondItem="yrb-qn-cLI" secondAttribute="trailing" id="sVC-H4-FF0"/>
+                                                            <constraint firstItem="qJ4-cV-45b" firstAttribute="height" secondItem="vS2-wV-Ak6" secondAttribute="height" id="yTr-KR-3Ru"/>
+                                                        </constraints>
+                                                        <viewLayoutGuide key="contentLayoutGuide" id="yrb-qn-cLI"/>
+                                                        <viewLayoutGuide key="frameLayoutGuide" id="vS2-wV-Ak6"/>
+                                                    </scrollView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="T7m-fj-Fnv" secondAttribute="bottom" id="07W-6g-mgF"/>
+                                                    <constraint firstItem="T7m-fj-Fnv" firstAttribute="leading" secondItem="jnC-sf-NJr" secondAttribute="leading" id="7Mg-Wt-8Mb"/>
+                                                    <constraint firstItem="T7m-fj-Fnv" firstAttribute="top" secondItem="jnC-sf-NJr" secondAttribute="top" id="NgK-MU-NB7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="T7m-fj-Fnv" secondAttribute="trailing" id="m1L-cW-wux"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
@@ -294,10 +323,11 @@
                         <outlet property="descriptionLabel" destination="dm1-er-zVU" id="cNS-Ze-9Y4"/>
                         <outlet property="detailView" destination="n5h-rf-QqM" id="pVt-6z-mwS"/>
                         <outlet property="foodInformationView" destination="ZFi-BO-ccs" id="D42-tp-qO2"/>
-                        <outlet property="headerView" destination="jnC-sf-NJr" id="J6m-Dx-W1u"/>
                         <outlet property="mainScrollViewHeightConstraint" destination="R0S-pr-beM" id="eZm-Zj-W0E"/>
                         <outlet property="pointLabel" destination="ZBZ-AT-K9D" id="Z9R-by-85N"/>
                         <outlet property="priceView" destination="3bp-SN-XfN" id="YVQ-6p-WWA"/>
+                        <outlet property="thumbnailView" destination="qJ4-cV-45b" id="Kl0-1w-fKs"/>
+                        <outlet property="thumbnailViewWidthConstraint" destination="wAI-nF-Tah" id="n1i-f8-x96"/>
                         <outlet property="titleLabel" destination="ybU-2G-mUB" id="6hG-aJ-rYx"/>
                         <outlet property="transportFee" destination="uKA-T5-bcj" id="9w9-t9-b7r"/>
                         <outlet property="transportInformation" destination="g4s-69-JWt" id="whO-gp-8v4"/>
