@@ -41,7 +41,7 @@ test {
 }
 
 bootWar {
-    archivesBaseName='ROOT'
+    archiveFileName = 'ROOT.war'
 }
 
 compileKotlin {
