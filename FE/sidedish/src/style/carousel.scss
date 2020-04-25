@@ -119,17 +119,5 @@
         font-size: 14px;
       }
     }
-    .item-badge {
-      span {
-        display: inline-block;
-        padding: 3px 8px;
-        color: #fff;
-        border-radius: 5px;
-        background: #4590f4;
-        & + span {
-          margin-left: 5px;
-        }
-      }
-    }
   }
 }
