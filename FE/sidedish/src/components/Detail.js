@@ -6,9 +6,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 const Detail = props => {
-  console.log(props.data.item.data);
-  const propsData = props.data.item.data;
-  const setPrice = parseInt(propsData.prices[0].replace(',', ''));
+  const propsData = props.data.item;
+  const setPrice = parseInt(propsData.salePrice.replace(',', ''));
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(setPrice);
   const close = e => {
@@ -30,7 +29,7 @@ const Detail = props => {
 
   const settings = {
     customPaging: function (i) {
-      return <img src={`${propsData.thumb_images[i]}`} alt={props.data.title} />;
+      return <img src={`${propsData.thumbImages[i]}`} alt={props.data.title} />;
     },
     dots: true,
     dotsClass: 'slick-dots slick-thumb',
@@ -44,7 +43,7 @@ const Detail = props => {
       <div className='detail-wrap'>
         <div className='detail-head'>
           <Slider {...settings} className='detail-thumb'>
-            {propsData.thumb_images.map((img, index) => (
+            {propsData.thumbImages.map((img, index) => (
               <div className='thumb' key={index}>
                 <img src={img} alt={props.data.title} />
               </div>
@@ -53,7 +52,7 @@ const Detail = props => {
           <div className='detail-info'>
             <div className='badge'></div>
             <h3 className='title'>{props.data.title}</h3>
-            <p className='description'>{propsData.product_description}</p>
+            <p className='description'>{propsData.description}</p>
             <div className='table'>
               <div>
                 <span>적립금</span>
@@ -61,15 +60,15 @@ const Detail = props => {
               </div>
               <div>
                 <span>배송정보</span>
-                <span>{propsData.delivery_info}</span>
+                <span>{propsData.deliveryInfo}</span>
               </div>
               <div>
                 <span>배송비</span>
-                <span>{propsData.delivery_fee}</span>
+                <span>{propsData.deliveryFee}</span>
               </div>
             </div>
             <div className='price'>
-              <div className='item-price'>{propsData.prices[0]}</div>
+              <div className='item-price'>{propsData.salePrice}</div>
             </div>
             <div className='quantity'>
               <p className='tit'>수량 선택</p>
@@ -96,7 +95,7 @@ const Detail = props => {
         </div>
         <div className='detail-body'>
           <h3>상세정보</h3>
-          {propsData.detail_section.map((item, index) => (
+          {propsData.detailSectionImages.map((item, index) => (
             <p key={index}>
               <img src={item} alt={props.data.title} />
             </p>
