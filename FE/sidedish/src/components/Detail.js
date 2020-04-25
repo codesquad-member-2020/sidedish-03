@@ -76,7 +76,10 @@ const Detail = props => {
               </div>
             </div>
             <div className='price'>
-              <div className='item-price'>{propsData.salePrice}</div>
+              <div className='item-price'>
+                {propsData.normalPrice === propsData.salePrice ? '' : <del>{propsData.normalPrice}</del>}
+                {propsData.salePrice} 원
+              </div>
             </div>
             <div className='quantity'>
               <p className='tit'>수량 선택</p>

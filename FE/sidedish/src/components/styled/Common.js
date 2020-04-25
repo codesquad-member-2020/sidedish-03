@@ -192,6 +192,10 @@ const Mask = styled.div`
     padding: 5px 0 0;
     text-align: right;
     .item-price {
+      del {
+        margin-right: 5px;
+        color: #888;
+      }
       font-weight: bold;
       font-size: 18px;
     }
