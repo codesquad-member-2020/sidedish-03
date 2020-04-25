@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.util.List;
 
-import static kr.codesquad.sidedish.business.sql.SQLKt.*;
+import static kr.codesquad.sidedish.business.sql.SQL.*;
 
 @Repository
 public class FoodTypeDaoDion implements FoodTypeDao {
