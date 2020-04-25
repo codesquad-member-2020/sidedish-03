@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import axios from 'axios';
 import useAsync from '../utils/useAsync';
 import { URL } from '../constant/url';
-import styled from 'styled-components';
+import { BadgeBox } from './styled/Common';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../style/carousel.scss';
@@ -84,16 +84,5 @@ const Carousel = props => {
     </div>
   );
 };
-
-const BadgeBox = styled.span`
-  display: inline-block;
-  padding: 3px 8px;
-  border-radius: 5px;
-  color: #fff;
-  background: ${props => props.backgroundColor};
-  & + span {
-    margin-left: 5px;
-  }
-`;
 
 export default Carousel;
