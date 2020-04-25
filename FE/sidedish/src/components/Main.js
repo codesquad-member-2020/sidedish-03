@@ -20,9 +20,9 @@ const Main = () => {
   return (
     <MainStyled>
       <div className='inner'>
-        <Carousel url='main' onClickHandler={onClickDetailItem} />
-        <Carousel url='soup' onClickHandler={onClickDetailItem} />
-        <Carousel url='side' onClickHandler={onClickDetailItem} />
+        <Carousel url='/foodtype/1' onClickHandler={onClickDetailItem} />
+        <Carousel url='/foodtype/2' onClickHandler={onClickDetailItem} />
+        <Carousel url='/foodtype/3' onClickHandler={onClickDetailItem} />
       </div>
       {!detail ? '' : <Detail data={detail} onClickHandler={onclickClose} disappear={detailVisible} />}
     </MainStyled>
