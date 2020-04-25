@@ -3,6 +3,7 @@ package kr.codesquad.sidedish.business.dao;
 import kr.codesquad.sidedish.business.dto.BadgeDto;
 import kr.codesquad.sidedish.business.dto.DishDto;
 import kr.codesquad.sidedish.business.mapper.BadgeDtoMapper;
+import kr.codesquad.sidedish.business.mapper.DishDtoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -19,6 +20,7 @@ public class DishDaoSolar implements DishDao {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     private final BadgeDtoMapper badgeDtoMapper = new BadgeDtoMapper();
+    private final DishDtoMapper dishDtoMapper = new DishDtoMapper();
 
     public DishDaoSolar(DataSource dataSource) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
@@ -32,17 +34,7 @@ public class DishDaoSolar implements DishDao {
                 " FROM side_dish sd" +
                 " JOIN image ON sd.top_image = image.id" +
                 " WHERE sd.id = :id";
-        DishDto dishDto = namedParameterJdbcTemplate.queryForObject(sqlDefaultInfo, namedParameters, (rs, rowNum) -> {
-                DishDto dto = new DishDto();
-                dto.setTopImage(rs.getString("top_image"));
-                dto.setDescription(rs.getString("description"));
-                dto.setPoint(rs.getString("point"));
-                dto.setDeliveryInfo(rs.getString("delivery_info"));
-                dto.setDeliveryFee(rs.getString("delivery_fee"));
-                dto.setNormalPrice(rs.getString("normal_price"));
-                dto.setSalePrice(rs.getString("sale_price"));
-                return dto;
-        });
+        DishDto dishDto = namedParameterJdbcTemplate.queryForObject(sqlDefaultInfo, namedParameters, dishDtoMapper);
 
         String sqlThumbImages = "SELECT image.url AS thumbimages FROM side_dish sd" +
                 " LEFT OUTER JOIN image ON sd.id = image.side_dish" +
