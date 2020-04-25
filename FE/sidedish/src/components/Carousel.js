@@ -56,7 +56,7 @@ const Carousel = props => {
               <div className='item-title'>{item.title}</div>
               <div className='item-description'>{item.description}</div>
               <div className='item-price'>
-                {!item.normalPrice ? (
+                {item.normalPrice === item.salePrice ? (
                   ''
                 ) : (
                   <span className='price-del'>
