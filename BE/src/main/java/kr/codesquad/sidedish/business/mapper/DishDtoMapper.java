@@ -10,14 +10,14 @@ public class DishDtoMapper implements RowMapper<DishDto> {
 
     @Override
     public DishDto mapRow(ResultSet rs, int rowNum) throws SQLException {
-        DishDto dishDto = new DishDto();
-        dishDto.setTopImage(rs.getString("top_image"));
-        dishDto.setDescription(rs.getString("description"));
-        dishDto.setPoint(rs.getString("point"));
-        dishDto.setDeliveryInfo(rs.getString("delivery_info"));
-        dishDto.setDeliveryFee(rs.getString("delivery_fee"));
-        dishDto.setNormalPrice(rs.getString("normal_price"));
-        dishDto.setSalePrice(rs.getString("sale_price"));
-        return dishDto;
+        return new DishDto.Builder()
+                .topImage(rs.getString("top_image"))
+                .description(rs.getString("description"))
+                .point(rs.getString("point"))
+                .deliveryInfo(rs.getString("delivery_info"))
+                .deliveryFee(rs.getString("delivery_fee"))
+                .normalPrice(rs.getString("normal_price"))
+                .salePrice(rs.getString("sale_price"))
+                .build();
     }
 }
