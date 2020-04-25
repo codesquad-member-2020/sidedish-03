@@ -1,5 +1,3 @@
-@file:JvmName("SQL")
-
 package kr.codesquad.sidedish.business.sql
 
 const val DISH_DETAIL_SQL: String = """

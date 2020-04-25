@@ -16,7 +16,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.util.List;
 
-import static kr.codesquad.sidedish.business.sql.SQL.*;
+import static kr.codesquad.sidedish.business.sql.SQLKt.*;
 
 @Repository
 public class BestDishDaoDion implements BestDishDao {

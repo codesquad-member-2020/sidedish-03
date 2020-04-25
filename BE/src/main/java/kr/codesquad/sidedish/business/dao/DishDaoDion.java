@@ -13,10 +13,10 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 
-import static kr.codesquad.sidedish.business.sql.SQL.BADGE_SQL;
-import static kr.codesquad.sidedish.business.sql.SQL.DETAIL_SECTION_IMAGE_SQL;
-import static kr.codesquad.sidedish.business.sql.SQL.DISH_DETAIL_SQL;
-import static kr.codesquad.sidedish.business.sql.SQL.THUMB_IMAGE_SQL;
+import static kr.codesquad.sidedish.business.sql.SQLKt.BADGE_SQL;
+import static kr.codesquad.sidedish.business.sql.SQLKt.DETAIL_SECTION_IMAGE_SQL;
+import static kr.codesquad.sidedish.business.sql.SQLKt.DISH_DETAIL_SQL;
+import static kr.codesquad.sidedish.business.sql.SQLKt.THUMB_IMAGE_SQL;
 
 @Repository
 public class DishDaoDion implements DishDao {
