@@ -1,5 +1,4 @@
-import styled, { keyframes, css } from 'styled-components';
-
+import styled, { createGlobalStyle, keyframes, css } from 'styled-components';
 
 const fadeIn = keyframes`
   from { 
@@ -37,6 +36,44 @@ const slideDown = keyframes`
   }
 `;
 
+const loadingOutter = keyframes`
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+`;
+const loadingInner = keyframes`
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(-360deg);
+    transform: rotate(-360deg);
+  }
+`;
+
+const GlobalStyle = createGlobalStyle`
+  #wrap {
+    overflow: hidden;
+    background: #fff;
+  }
+  .inner {
+    width: ${props => props.width};
+    margin: 0 auto;
+  }
+`;
+
+const NavStyled = styled.div`
+  position: relative;
+  background: #483f35;
+  z-index: 10;
+`;
+
 const BadgeBox = styled.span`
   display: inline-block;
   padding: 3px 8px;
@@ -71,6 +108,74 @@ const CloseButtn = styled.div`
     svg {
       fill: #0e8b87;
     }
+  }
+`;
+const Mainloading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  ${props =>
+    props.disappear &&
+    css`
+      animation-duration: 0.8s;
+      animation-timing-function: ease-out;
+      animation-name: ${fadeOut};
+      animation-fill-mode: forwards;
+    `}
+  &::before {
+    content: 'LOADING';
+    font-size: 22px;
+  }
+  &::after {
+    content: 'SIDEDISH TEAM PROJECT';
+  }
+`;
+
+const Loading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 4px solid #bdbdbd;
+    border-left-color: transparent;
+    border-bottom: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-animation: ${loadingOutter} 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+    animation: ${loadingOutter} 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 4px solid #bdbdbd;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    left: calc(50% - 20px);
+    top: calc(50% - 20px);
+    border-right: 0;
+    border-top-color: transparent;
+    -webkit-animation: ${loadingInner} 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
+    animation: ${loadingInner} 1s cubic-bezier(0.42, 0.61, 0.58, 0.41) infinite;
   }
 `;
 
@@ -311,4 +416,4 @@ const Mask = styled.div`
   }
 `;
 
-export { BadgeBox, Mask, CloseButtn };
+export { GlobalStyle, NavStyled, Mainloading, Loading, BadgeBox, Mask, CloseButtn };
