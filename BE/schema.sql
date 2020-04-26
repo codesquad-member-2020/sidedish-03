@@ -128,8 +128,6 @@ ALTER TABLE `side_dish`
     ADD CONSTRAINT `fk_side_dish_image_1` FOREIGN KEY (`main_image`) REFERENCES `image` (`id`);
 ALTER TABLE `side_dish`
     ADD CONSTRAINT `fk_side_dish_image_2` FOREIGN KEY (`top_image`) REFERENCES `image` (`id`);
-ALTER TABLE `detail_section_image`
-    ADD CONSTRAINT `fk_detail_section_image_side_dish_1` FOREIGN KEY (`side_dish`) REFERENCES `side_dish` (`id`);
 ALTER TABLE `thumb_image`
     ADD CONSTRAINT `fk_thumb_image_side_dish_1` FOREIGN KEY (`side_dish`) REFERENCES `side_dish` (`id`);
 ALTER TABLE `category_side_dish`
