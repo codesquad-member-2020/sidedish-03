@@ -1,6 +1,8 @@
 package kr.codesquad.sidedish.business.dto;
 
 
+import kr.codesquad.sidedish.business.wrapper.Money;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -102,8 +104,8 @@ public class DishDto {
             return this;
         }
 
-        public Builder point(String point) {
-            this.point = point;
+        public Builder point(Long point) {
+            this.point = Money.valueOf(point).format();
             return this;
         }
 
@@ -117,13 +119,13 @@ public class DishDto {
             return this;
         }
 
-        public Builder normalPrice(String normalPrice) {
-            this.normalPrice = normalPrice;
+        public Builder normalPrice(Long normalPrice) {
+            this.normalPrice = Money.valueOf(normalPrice).format();
             return this;
         }
 
-        public Builder salePrice(String salePrice) {
-            this.salePrice = salePrice;
+        public Builder salePrice(Long salePrice) {
+            this.salePrice = Money.valueOf(salePrice).format();
             return this;
         }
 

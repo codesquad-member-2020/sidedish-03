@@ -14,8 +14,8 @@ public class DishOverviewDtoMapper implements RowMapper<DishOverviewDto> {
                 .description(rs.getString("description"))
                 .mainImage(rs.getString("main_image"))
                 .alt(rs.getString("alt"))
-                .normalPrice(rs.getString("normal_price"))
-                .salePrice(rs.getString("sale_price"))
+                .normalPrice(rs.getLong("normal_price"))
+                .salePrice(rs.getLong("sale_price"))
                 .build();
     }
 }

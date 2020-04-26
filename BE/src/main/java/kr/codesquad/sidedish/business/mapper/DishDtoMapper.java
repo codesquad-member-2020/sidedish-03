@@ -13,11 +13,11 @@ public class DishDtoMapper implements RowMapper<DishDto> {
         return new DishDto.Builder()
                 .topImage(rs.getString("top_image"))
                 .description(rs.getString("description"))
-                .point(rs.getString("point"))
+                .point(rs.getLong("point"))
                 .deliveryInfo(rs.getString("delivery_info"))
                 .deliveryFee(rs.getString("delivery_fee"))
-                .normalPrice(rs.getString("normal_price"))
-                .salePrice(rs.getString("sale_price"))
+                .normalPrice(rs.getLong("normal_price"))
+                .salePrice(rs.getLong("sale_price"))
                 .build();
     }
 }
