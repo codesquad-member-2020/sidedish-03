@@ -1,8 +1,8 @@
 package kr.codesquad.sidedish.business.dao;
 
 import kr.codesquad.sidedish.business.dto.BadgeDto;
-import kr.codesquad.sidedish.business.dto.DishDto;
 import kr.codesquad.sidedish.business.mapper.BadgeDtoMapper;
+import kr.codesquad.sidedish.business.ktdto.DishDto;
 import kr.codesquad.sidedish.business.mapper.DishDtoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
