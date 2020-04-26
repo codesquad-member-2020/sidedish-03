@@ -16,7 +16,9 @@ public enum ErrorCode {
     // FoodType
     FOOD_TYPE_NOT_FOUND(404, "FT001", "해당 음식종류는 존재하지 않아요!"),
     // Category
-    CATEGORY_NOT_FOUND(404, "C001", "해당 베스트 반찬 목록은 존재하지 않아요!")
+    CATEGORY_NOT_FOUND(404, "C001", "해당 베스트 반찬 목록은 존재하지 않아요!"),
+    // Money
+    WRONG_MONEY_DATA(500, "M001", "잘못된 가격 정보가 DB에 존재합니다."),
     ;
 
     private final String code;
