@@ -3,7 +3,7 @@ package kr.codesquad.sidedish.business.dao;
 import kr.codesquad.sidedish.business.dto.DishOverviewDto;
 import kr.codesquad.sidedish.business.dto.FoodTypeDto;
 import kr.codesquad.sidedish.business.mapper.BadgeDtoMapper;
-import kr.codesquad.sidedish.business.mapper.DishOverViewDtoMapper;
+import kr.codesquad.sidedish.business.mapper.DishOverviewDtoMapper;
 import kr.codesquad.sidedish.business.mapper.FoodTypeDtoMapper;
 import kr.codesquad.sidedish.common.error.exception.FoodTypeNotFoundException;
 import kr.codesquad.sidedish.common.util.NamedParameterOptionalJdbcTemplate;
@@ -23,7 +23,7 @@ public class FoodTypeDaoDion implements FoodTypeDao {
 
     private final NamedParameterOptionalJdbcTemplate jdbcTemplate;
     private final FoodTypeDtoMapper foodTypeDtoMapper = new FoodTypeDtoMapper();
-    private final DishOverViewDtoMapper dishOverViewDtoMapper = new DishOverViewDtoMapper();
+    private final DishOverviewDtoMapper dishOverViewDtoMapper = new DishOverviewDtoMapper();
     private final BadgeDtoMapper badgeDtoMapper = new BadgeDtoMapper();
 
     public FoodTypeDaoDion(DataSource dataSource) {
@@ -31,7 +31,7 @@ public class FoodTypeDaoDion implements FoodTypeDao {
     }
 
     @Override
-    public List<FoodTypeDto> findAllFoodType() {
+    public List<FoodTypeDto> findAllFoodTypes() {
         List<FoodTypeDto> foodTypes = jdbcTemplate.query(ALL_FOOD_TYPE_SQL, foodTypeDtoMapper);
 
         for (FoodTypeDto foodType : foodTypes) {

@@ -26,4 +26,11 @@ class FoodTypeDaoSolarTest {
         assertThat(foodTypeDto).isNotNull();
         log.debug("foodTypeDto findDishesByFoodTypeId : {}", foodTypeDto);
     }
+
+    @Test
+    void findAllFoodTypes() {
+        List<FoodTypeDto> foodTypeDtos = foodTypeDaoSolar.findAllFoodTypes();
+        assertThat(foodTypeDtos).isNotNull();
+        log.debug("findAllFoodTypes : {}", foodTypeDtos);
+    }
 }
