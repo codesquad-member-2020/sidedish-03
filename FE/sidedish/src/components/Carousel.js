@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import axios from 'axios';
 import useAsync from '../utils/useAsync';
 import { URL } from '../constant/url';
-import { BadgeBox } from './styled/Common';
+import { BadgeBox, Loading } from './styled/Common';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import '../style/carousel.scss';
@@ -24,7 +24,7 @@ const Carousel = props => {
   };
   const state = useAsync(getItem);
   const { loading, data: mainItem, error } = state;
-  if (loading) return <div>로딩중</div>;
+  if (loading) return <Loading />;
   if (error) return <div>에러</div>;
   if (!mainItem) return null;
 
