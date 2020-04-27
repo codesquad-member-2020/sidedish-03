@@ -10,7 +10,7 @@ const Detail = props => {
   const setPrice = parseInt(propsData.salePrice.replace(',', ''));
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(setPrice);
-  const close = e => {
+  const closeDetail = e => {
     const target = e.currentTarget;
     return props.onClickHandler(target);
   };
@@ -111,7 +111,7 @@ const Detail = props => {
           ))}
         </div>
       </div>
-      <CloseButtn className='btn-close' onClick={close}>
+      <CloseButtn className='btn-close' onClick={closeDetail}>
         <IoMdClose size='50' color='#bfbfbf' />
       </CloseButtn>
     </Mask>
