@@ -69,13 +69,12 @@ const Carousel = props => {
                 </span>
               </div>
               <div className='item-badge'>
-                {!item.badges
-                  ? ''
-                  : item.badges.map((badge, index) => (
-                      <BadgeBox key={index} backgroundColor={badge.color}>
-                        {badge.name}
-                      </BadgeBox>
-                    ))}
+                {item.badges &&
+                  item.badges.map((badge, index) => (
+                    <BadgeBox key={index} backgroundColor={badge.color}>
+                      {badge.name}
+                    </BadgeBox>
+                  ))}
               </div>
             </div>
           </div>

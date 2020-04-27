@@ -51,9 +51,7 @@ const Detail = props => {
           </Slider>
           <div className='detail-info'>
             <div className='badge'>
-              {!propsData.badges
-                ? ''
-                : propsData.badges.map((badge, index) => (
+              {propsData.badges && propsData.badges.map((badge, index) => (
                     <BadgeBox key={index} backgroundColor={badge.color}>
                       {badge.name}
                     </BadgeBox>
