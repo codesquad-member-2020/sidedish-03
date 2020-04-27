@@ -4,7 +4,7 @@ import kr.codesquad.sidedish.business.dto.CategoryDto;
 import kr.codesquad.sidedish.business.dto.DishOverviewDto;
 import kr.codesquad.sidedish.business.mapper.BadgeDtoMapper;
 import kr.codesquad.sidedish.business.mapper.CategoryDtoMapper;
-import kr.codesquad.sidedish.business.mapper.DishOverViewDtoMapper;
+import kr.codesquad.sidedish.business.mapper.DishOverviewDtoMapper;
 import kr.codesquad.sidedish.common.error.exception.CategoryNotFoundException;
 import kr.codesquad.sidedish.common.util.NamedParameterOptionalJdbcTemplate;
 import org.slf4j.Logger;
@@ -23,7 +23,7 @@ public class BestDishDaoDion implements BestDishDao {
 
     private final NamedParameterOptionalJdbcTemplate jdbcTemplate;
     private final CategoryDtoMapper categoryDtoMapper = new CategoryDtoMapper();
-    private final DishOverViewDtoMapper dishOverViewDtoMapper = new DishOverViewDtoMapper();
+    private final DishOverviewDtoMapper dishOverViewDtoMapper = new DishOverviewDtoMapper();
     private final BadgeDtoMapper badgeDtoMapper = new BadgeDtoMapper();
 
     public BestDishDaoDion(DataSource dataSource) {
