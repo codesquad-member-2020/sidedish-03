@@ -1,5 +1,6 @@
 package kr.codesquad.sidedish.business.dao;
 
+import kr.codesquad.sidedish.business.dto.BadgeDto;
 import kr.codesquad.sidedish.business.dto.DishDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.ResultSet;
 import java.util.List;
 
 @Repository
@@ -57,6 +59,19 @@ public class DishDaoSolar implements DishDao {
                 " ORDER BY image.detail_section_image_order";
         List<String> detailSectionImages = namedParameterJdbcTemplate.queryForList(sqlDetailSectionImages, namedParameters, String.class);
         dishDto.setDetailSectionImages(detailSectionImages);
+
+        String sqlBadgeInfo = "SELECT badge.name, badge.color" +
+                " FROM side_dish sd" +
+                " INNER JOIN badge_side_dish bsd ON sd.id = bsd.side_dish" +
+                " INNER JOIN badge ON bsd.badge = badge.id" +
+                " WHERE sd.id = :id";
+        List<BadgeDto> badgeDtos = namedParameterJdbcTemplate.query(sqlBadgeInfo, namedParameters, (ResultSet rs, int rowNum) -> {
+            BadgeDto dto = new BadgeDto();
+            dto.setName(rs.getString("name"));
+            dto.setColor(rs.getString("color"));
+            return dto;
+        });
+        dishDto.setBadges(badgeDtos);
 
         return dishDto;
     }

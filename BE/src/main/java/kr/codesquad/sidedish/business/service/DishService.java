@@ -13,7 +13,7 @@ public class DishService {
 
     private final DishDao dishDao;
 
-    public DishService(@Qualifier("dishDaoDion") DishDao dishDao) {
+    public DishService(@Qualifier("dishDaoSolar") DishDao dishDao) {
         this.dishDao = dishDao;
     }
 
