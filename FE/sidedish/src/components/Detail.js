@@ -24,7 +24,8 @@ const Detail = props => {
     return setTotalPrice(prevPrice => prevPrice - setPrice);
   };
   const priceCommas = price => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    const regComma = /\B(?=(\d{3})+(?!\d))/g;
+    return price.toString().replace(regComma, ',');
   };
 
   const settings = {
