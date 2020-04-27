@@ -14,6 +14,7 @@ public class DishOverviewDtoMapper implements RowMapper<DishOverviewDto> {
         dishOverviewDto.setMainImage(rs.getString("main_image"));
         dishOverviewDto.setAlt(rs.getString("alt"));
         dishOverviewDto.setTitle(rs.getString("title"));
+        dishOverviewDto.setDescription(rs.getString("description"));
         dishOverviewDto.setNormalPrice(rs.getString("normal_price"));
         dishOverviewDto.setSalePrice(rs.getString("sale_price"));
         return dishOverviewDto;
