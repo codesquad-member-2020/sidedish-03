@@ -2,6 +2,7 @@ package kr.codesquad.sidedish.business.dao;
 
 import kr.codesquad.sidedish.business.dto.BadgeDto;
 import kr.codesquad.sidedish.business.dto.DishDto;
+import kr.codesquad.sidedish.business.mapper.BadgeDtoMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -10,7 +11,6 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.ResultSet;
 import java.util.List;
 
 @Repository
@@ -18,6 +18,7 @@ public class DishDaoSolar implements DishDao {
     private static final Logger log = LoggerFactory.getLogger(DishDaoSolar.class);
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
+    private final BadgeDtoMapper badgeDtoMapper = new BadgeDtoMapper();
 
     public DishDaoSolar(DataSource dataSource) {
         this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
@@ -65,12 +66,7 @@ public class DishDaoSolar implements DishDao {
                 " INNER JOIN badge_side_dish bsd ON sd.id = bsd.side_dish" +
                 " INNER JOIN badge ON bsd.badge = badge.id" +
                 " WHERE sd.id = :id";
-        List<BadgeDto> badgeDtos = namedParameterJdbcTemplate.query(sqlBadgeInfo, namedParameters, (ResultSet rs, int rowNum) -> {
-            BadgeDto dto = new BadgeDto();
-            dto.setName(rs.getString("name"));
-            dto.setColor(rs.getString("color"));
-            return dto;
-        });
+        List<BadgeDto> badgeDtos = namedParameterJdbcTemplate.query(sqlBadgeInfo, namedParameters, badgeDtoMapper);
         dishDto.setBadges(badgeDtos);
 
         return dishDto;
