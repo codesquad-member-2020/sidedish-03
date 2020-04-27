@@ -20,7 +20,7 @@ public class FoodTypeService {
     }
 
     public List<FoodTypeDto> findAllFoodTypes() {
-        return foodTypeDao.findAllFoodType();
+        return foodTypeDao.findAllFoodTypes();
     }
 
     public FoodTypeDto findDishesByFoodTypeId(Long foodTypeId) {
