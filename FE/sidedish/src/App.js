@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <GlobalStyle width='1000px' />
-      {mainLoading ? <Mainloading disappear={visible}></Mainloading> : ''}
+      {mainLoading && <Mainloading disappear={visible}></Mainloading>}
       <Header />
       <Main />
       <Footer />
