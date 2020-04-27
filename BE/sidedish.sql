@@ -61,14 +61,6 @@ CREATE TABLE `image`
     `thumb_image_order`          INT(11)      NULL,
     PRIMARY KEY (`id`)
 );
-CREATE TABLE `detail_section_image`
-(
-    `id`            BIGINT(11)   NOT NULL AUTO_INCREMENT,
-    `url`           VARCHAR(255) NULL,
-    `side_dish`     BIGINT(11)   NULL,
-    `side_dish_key` INT(11)      NULL,
-    PRIMARY KEY (`id`)
-);
 CREATE TABLE `thumb_image`
 (
     `id`            BIGINT(11)   NOT NULL AUTO_INCREMENT,
@@ -112,7 +104,7 @@ CREATE TABLE `badge`
 );
 CREATE TABLE `delivery_type_side_dish`
 (
-    `id`            BIGINT(11) NOT NULL,
+    `id`            BIGINT(11) NOT NULL AUTO_INCREMENT,
     `delivery_type` BIGINT(11) NULL,
     `side_dish`     BIGINT(11) NULL,
     PRIMARY KEY (`id`)

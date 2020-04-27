@@ -12,9 +12,7 @@ const Header = () => {
     <div className='header-wrap'>
       <TopNav />
       <HeaderInnderStyled className='inner'>
-        <h1 className='logo'>
-          <img src='/images/logo.png' alt='Project Logo'/>
-        </h1>
+        <h1 className='logo'><img src='/images/logo.png' alt='Project Logo'/></h1>
       </HeaderInnderStyled>
       <GlobalNav />
     </div>

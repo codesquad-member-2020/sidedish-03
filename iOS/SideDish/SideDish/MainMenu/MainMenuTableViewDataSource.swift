@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainMenuTableViewDataSource: NSObject {
+final class MainMenuTableViewDataSource: NSObject {
     
 }
 

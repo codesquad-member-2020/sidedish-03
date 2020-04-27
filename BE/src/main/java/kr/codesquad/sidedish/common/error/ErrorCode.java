@@ -12,7 +12,11 @@ public enum ErrorCode {
     USER_NOT_FOUND(404, "U001", " 해당 사용자가 존재하지 않습니다."),
     LOGIN_REQUIRED(401, "U002", " 로그인을 해주세요."),
     // Dish
-    DISH_NOT_FOUND(404, "D001", " 해당 반찬은 존재하지 않아요!")
+    DISH_NOT_FOUND(404, "D001", " 해당 반찬은 존재하지 않아요!"),
+    // FoodType
+    FOOD_TYPE_NOT_FOUND(404, "FT001", "해당 음식종류는 존재하지 않아요!"),
+    // Category
+    CATEGORY_NOT_FOUND(404, "C001", "해당 베스트 반찬 목록은 존재하지 않아요!")
     ;
 
     private final String code;

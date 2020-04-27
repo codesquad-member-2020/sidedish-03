@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainMenuViewController: UITableViewController {
+final class MainMenuViewController: UITableViewController {
     
     // MARK: - Properties
     private let dataSource = MainMenuTableViewDataSource()

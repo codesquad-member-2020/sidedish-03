@@ -14,6 +14,7 @@ public class DishDto {
     private String salePrice;
     private List<String> thumbImages = new ArrayList<>();
     private List<String> detailSectionImages = new ArrayList<>();
+    private List<BadgeDto> badges = new ArrayList<>();
 
     public String getTopImage() {
         return topImage;
@@ -87,8 +88,16 @@ public class DishDto {
         this.detailSectionImages = detailSectionImages;
     }
 
+    public List<BadgeDto> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<BadgeDto> badges) {
+        this.badges = badges;
+    }
+
     @Override
     public String toString() {
-        return "DishDto{" + "topImage='" + topImage + '\'' + ", description='" + description + '\'' + ", point='" + point + '\'' + ", deliveryInfo='" + deliveryInfo + '\'' + ", deliveryFee='" + deliveryFee + '\'' + ", normalPrice='" + normalPrice + '\'' + ", salePrice='" + salePrice + '\'' + ", thumbImages=" + thumbImages + ", detailSectionImages=" + detailSectionImages + '}';
+        return "DishDto{" + "topImage='" + topImage + '\'' + ", description='" + description + '\'' + ", point='" + point + '\'' + ", deliveryInfo='" + deliveryInfo + '\'' + ", deliveryFee='" + deliveryFee + '\'' + ", normalPrice='" + normalPrice + '\'' + ", salePrice='" + salePrice + '\'' + ", thumbImages=" + thumbImages + ", detailSectionImages=" + detailSectionImages + ", badges=" + badges + '}';
     }
 }

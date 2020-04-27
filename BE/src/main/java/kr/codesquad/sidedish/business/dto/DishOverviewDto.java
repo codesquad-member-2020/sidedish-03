@@ -11,8 +11,8 @@ public class DishOverviewDto {
     private String description;
     private String normalPrice;
     private String salePrice;
-    private List<String> deliveryType = new ArrayList<>();
-    private List<BadgeDto> badge = new ArrayList<>();
+    private List<String> deliveryTypes = new ArrayList<>();
+    private List<BadgeDto> badges = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -38,12 +38,12 @@ public class DishOverviewDto {
         this.alt = alt;
     }
 
-    public List<String> getDeliveryType() {
-        return deliveryType;
+    public List<String> getDeliveryTypes() {
+        return deliveryTypes;
     }
 
-    public void setDeliveryType(List<String> deliveryType) {
-        this.deliveryType = deliveryType;
+    public void setDeliveryTypes(List<String> deliveryTypes) {
+        this.deliveryTypes = deliveryTypes;
     }
 
     public String getTitle() {
@@ -78,11 +78,16 @@ public class DishOverviewDto {
         this.salePrice = salePrice;
     }
 
-    public List<BadgeDto> getBadge() {
-        return badge;
+    public List<BadgeDto> getBadges() {
+        return badges;
     }
 
-    public void setBadge(List<BadgeDto> badge) {
-        this.badge = badge;
+    public void setBadges(List<BadgeDto> badges) {
+        this.badges = badges;
+    }
+
+    @Override
+    public String toString() {
+        return "DishOverviewDto{" + "id=" + id + ", mainImage='" + mainImage + '\'' + ", alt='" + alt + '\'' + ", title='" + title + '\'' + ", description='" + description + '\'' + ", normalPrice='" + normalPrice + '\'' + ", salePrice='" + salePrice + '\'' + ", deliveryTypes=" + deliveryTypes + ", badges=" + badges + '}';
     }
 }

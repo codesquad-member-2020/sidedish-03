@@ -1,9 +1,11 @@
 package kr.codesquad.sidedish.business.dao;
 
-import kr.codesquad.sidedish.business.dto.DishOverviewDto;
+import kr.codesquad.sidedish.business.dto.FoodTypeDto;
+import java.util.List;
 
 import java.util.List;
 
 public interface FoodTypeDao {
-    List<DishOverviewDto> findDishesByFoodTypeId(Long foodTypeId);
+    List<FoodTypeDto> findAllFoodTypes();
+    FoodTypeDto findDishesByFoodTypeId(Long foodTypeId);
 }
