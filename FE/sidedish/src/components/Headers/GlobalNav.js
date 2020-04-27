@@ -1,15 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
+import {NavStyled, Loading} from '../styled/Common';
 import useAsync from '../../utils/useAsync';
 import { MOCK_URL } from '../../constant/url';
 import '../../style/gnb.scss';
 
-const GlobalNavStyled = styled.div`
-  position: relative;
-  background: #483f35;
-  z-index: 10;
-`;
 
 const getMenuList = async () => {
   const response = await axios.get(`${MOCK_URL}data/menu.json`);
@@ -19,12 +14,12 @@ const getMenuList = async () => {
 const GlobalNav = () => {
   const state = useAsync(getMenuList);
   const { loading, data: menuList, error } = state;
-  if (loading) return <div>로딩중</div>;
+  if (loading) return <Loading/>;
   if (error) return <div>에러</div>;
   if (!menuList) return null;
 
   return (
-    <GlobalNavStyled>
+    <NavStyled>
       <div className='inner'>
         <ul className='gnb'>
           {menuList.map(menu => (
@@ -41,7 +36,7 @@ const GlobalNav = () => {
           ))}
         </ul>
       </div>
-    </GlobalNavStyled>
+    </NavStyled>
   );
 };
 

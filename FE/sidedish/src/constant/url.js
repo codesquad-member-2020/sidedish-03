@@ -16,7 +16,7 @@
 상세페이지
 /dish-detail/{dish_id}
 */
-const URL = 'https://h3rb9c0ugl.execute-api.ap-northeast-2.amazonaws.com/develop/baminchan/';
+const URL = 'http://15.165.21.99/api/';
 const MOCK_URL = 'http://localhost:3000/';
 
 export {URL, MOCK_URL}

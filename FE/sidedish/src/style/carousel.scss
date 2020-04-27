@@ -68,6 +68,7 @@
     width: 28px;
     height: 52px;
     background: url(/images/btn_nav_arrow.png) no-repeat;
+    z-index: 10;
     &::before {
       display: none;
     }
@@ -116,18 +117,6 @@
       }
       .price-unit {
         font-size: 14px;
-      }
-    }
-    .item-badge {
-      span {
-        display: inline-block;
-        padding: 3px 8px;
-        color: #fff;
-        border-radius: 5px;
-        background: #4590f4;
-        & + span {
-          margin-left: 5px;
-        }
       }
     }
   }
