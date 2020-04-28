@@ -2,12 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import {NavStyled, Loading} from '../styled/Common';
 import useAsync from '../../utils/useAsync';
-import { MOCK_URL } from '../../constant/url';
 import '../../style/gnb.scss';
 
 
 const getMenuList = async () => {
-  const response = await axios.get(`${MOCK_URL}data/menu.json`);
+  const response = await axios.get(`${process.env.PUBLIC_URL}data/menu.json`);
   return response.data;
 };
 
