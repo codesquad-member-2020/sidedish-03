@@ -8,6 +8,7 @@ import Item from '../Item';
 import '../../style/tabs.scss';
 
 export default props => {
+  
   const onClickTest = (item, title) => {
     return props.onClickHandler(item, title);
   };
@@ -28,15 +29,15 @@ export default props => {
         <Tabs className='tab-wrap'>
           <div className='inner'>
             <p className='tab-title'>
-              <span>베스트셀러</span>
-              후기가 증명하는 베스트셀러
+              <span>{bestItems.data.name}</span>
+              {bestItems.data.description}
             </p>
             <TabList className='tab-nav'>
-              {bestItems.data.map((cate, index) => (
+              {bestItems.data.bestDishes.map((cate, index) => (
                 <Tab key={index}>{cate.categoryName}</Tab>
               ))}
             </TabList>
-            {bestItems.data.map((itemList, index) => {
+            {bestItems.data.bestDishes.map((itemList, index) => {
               const sliceData = itemList.items.slice(0, 4);
               return (
                 <TabPanel key={index} className='tab-panel'>
