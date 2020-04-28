@@ -79,7 +79,6 @@ final class ProductDetailViewController: UIViewController {
     private func configureImage(image: String, mode contentMode: UIView.ContentMode) -> UIImageView {
         let imageView = UIImageView()
         imageView.image = UIImage(named: image)
-        imageView.backgroundColor = .darkGray
         imageView.contentMode = contentMode
         return imageView
     }
