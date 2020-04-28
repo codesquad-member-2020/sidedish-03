@@ -1,5 +1,6 @@
 package kr.codesquad.sidedish.business.controller;
 
+import kr.codesquad.sidedish.business.dto.BestDishDto;
 import kr.codesquad.sidedish.business.dto.CategoryDto;
 import kr.codesquad.sidedish.business.service.BestDishService;
 import org.slf4j.Logger;
@@ -8,8 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/best")
@@ -23,7 +22,7 @@ public class BestDishController {
     }
 
     @GetMapping("")
-    public List<CategoryDto> showBestDishes() {
+    public BestDishDto showBestDishes() {
         return bestDishService.findBestDishes();
     }
 

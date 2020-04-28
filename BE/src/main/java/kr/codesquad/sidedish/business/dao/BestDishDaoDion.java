@@ -1,5 +1,6 @@
 package kr.codesquad.sidedish.business.dao;
 
+import kr.codesquad.sidedish.business.dto.BestDishDto;
 import kr.codesquad.sidedish.business.dto.CategoryDto;
 import kr.codesquad.sidedish.business.dto.DishOverviewDto;
 import kr.codesquad.sidedish.business.mapper.BadgeDtoMapper;
@@ -31,7 +32,7 @@ public class BestDishDaoDion implements BestDishDao {
     }
 
     @Override
-    public List<CategoryDto> findBestDishes() {
+    public BestDishDto findBestDishes() {
         List<CategoryDto> categories = jdbcTemplate.query(ALL_CATEGORIES_SQL, categoryDtoMapper);
 
         for (CategoryDto category : categories) {
@@ -39,7 +40,7 @@ public class BestDishDaoDion implements BestDishDao {
             fillItems(category, parameters);
         }
 
-        return categories;
+        return BestDishDto.of(categories);
     }
 
     @Override
