@@ -1,20 +1,22 @@
 import React from 'react';
 import axios from 'axios';
+import {URL} from '../constant/url';
 import { BadgeBox } from './styled/Common';
+import '../style/item.scss';
 
 const Item = props => {
-  // const onClickTargetID = async e => {
-  //   e.preventDefault();
-  //   const target = e.currentTarget;
-  //   const targetID = target.dataset.item;
-  //   const targetTitle = target.querySelector('.item-title').innerHTML;
-  //   const response = await axios.get(`${URL}dish/${targetID}`);
-  //   return propsDataonClickHandler(response.data, targetTitle);
-  // };
-  console.log(props);
+  const onClickTargetID = async e => {
+    e.preventDefault();
+    const target = e.currentTarget;
+    const targetID = props.data.id;
+    const targetTitle = target.querySelector('.item-title').innerHTML;
+    const response = await axios.get(`${URL}dish/${targetID}`);
+    return props.onClickHandler(response.data, targetTitle);
+  };
+
   const propsData = props.data;
   return (
-    <div className='item' data-item={propsData.id}>
+    <div className='item' onClick={onClickTargetID}>
       <div className='item-thumb'>
         <img src={propsData.mainImage} alt={propsData.alt} />
         <div className='hover-text'>
