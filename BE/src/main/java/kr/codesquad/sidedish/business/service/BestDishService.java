@@ -1,13 +1,12 @@
 package kr.codesquad.sidedish.business.service;
 
 import kr.codesquad.sidedish.business.dao.BestDishDao;
+import kr.codesquad.sidedish.business.dto.BestDishDto;
 import kr.codesquad.sidedish.business.dto.CategoryDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class BestDishService {
@@ -19,7 +18,7 @@ public class BestDishService {
         this.bestDishDao = bestDishDao;
     }
 
-    public List<CategoryDto> findBestDishes() {
+    public BestDishDto findBestDishes() {
         return bestDishDao.findBestDishes();
     }
 
