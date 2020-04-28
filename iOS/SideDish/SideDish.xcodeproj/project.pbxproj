@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE3A1C2B2457E547005433C9 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE3A1C2A2457E547005433C9 /* PaddingLabel.swift */; };
 		AEB661942451719700ED7B46 /* PriceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB661932451719700ED7B46 /* PriceView.swift */; };
 		AEBF8535244D7EB5007D46DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8534244D7EB5007D46DD /* AppDelegate.swift */; };
 		AEBF8537244D7EB5007D46DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBF8536244D7EB5007D46DD /* SceneDelegate.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE3A1C2A2457E547005433C9 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		AEB661932451719700ED7B46 /* PriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceView.swift; sourceTree = "<group>"; };
 		AEBF8531244D7EB5007D46DD /* SideDish.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideDish.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEBF8534244D7EB5007D46DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				AEBF8559244D80A4007D46DD /* MainMenuTableViewCell.swift */,
 				AEBF8560244D8E9C007D46DD /* MainMenuTableViewSectionHeader.swift */,
+				AE3A1C2A2457E547005433C9 /* PaddingLabel.swift */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				AEB661942451719700ED7B46 /* PriceView.swift in Sources */,
 				AEBF855E244D8B0F007D46DD /* StrikeThroughMaker.swift in Sources */,
 				AEBF8537244D7EB5007D46DD /* SceneDelegate.swift in Sources */,
+				AE3A1C2B2457E547005433C9 /* PaddingLabel.swift in Sources */,
 				AEBF855A244D80A4007D46DD /* MainMenuTableViewCell.swift in Sources */,
 				AEBF856B244DD285007D46DD /* ProductDetailViewController.swift in Sources */,
 				AEBF855C244D839D007D46DD /* MainMenuTableViewDataSource.swift in Sources */,

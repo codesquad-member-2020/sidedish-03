@@ -36,7 +36,7 @@ const TopNav = () => {
       <div className='inner'>
         <span>Team#3 Project</span>
         <ul className='mem-utils'>
-          <li>로그인</li>
+          <li><a href='https://github.com/login/oauth/authorize\?client_id=bed01aae4e0ea3bebf24&scope=user%20public_repo'>로그인</a></li>
           <li>회원가입</li>
           <li>마이페이지</li>
           <li>고객센터</li>

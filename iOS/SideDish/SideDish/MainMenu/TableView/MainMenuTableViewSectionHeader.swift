@@ -10,33 +10,33 @@ import UIKit
 import SnapKit
 
 extension UIFont {
-    static var categorySize: CGFloat = 12
-    static var boldTitleSize: CGFloat = 16
+    static let categorySize: CGFloat = 12
+    static let boldTitleSize: CGFloat = 17
 }
 
 extension CALayer {
-    static var categoryWidth: CGFloat = 1
+    static let categoryWidth: CGFloat = 1
 }
 
 final class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
     
     // MARK: - IBOutlets
-    private var colorView: UIView = {
+    private var colorView: UIView! = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
-    private var categoryLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .systemGray
-        label.font = UIFont.systemFont(ofSize: UIFont.categorySize)
-        label.layer.borderWidth = CALayer.categoryWidth
-        label.alpha = 0.5
-        label.layer.borderColor = UIColor.systemGray.cgColor
-        return label
+    private var categoryLabel: PaddingLabel! = {
+        let paddingLabel = PaddingLabel(insets: PaddingLabel.inset)
+        paddingLabel.textAlignment = .center
+        paddingLabel.textColor = .systemGray
+        paddingLabel.font = UIFont.systemFont(ofSize: UIFont.categorySize)
+        paddingLabel.layer.borderWidth = CALayer.categoryWidth
+        paddingLabel.alpha = 0.5
+        paddingLabel.layer.borderColor = UIColor.systemGray.cgColor
+        return paddingLabel
     }()
-    private var titleLabel: UILabel = {
+    private var titleLabel: UILabel! = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: UIFont.boldTitleSize)
@@ -44,7 +44,8 @@ final class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
     }()
     
     // MARK: - Properties
-    static var height: CGFloat = 50
+    static let reuseIdentifier: String = String(describing: self)
+    static let height: CGFloat = 50
     
     // MARK: - Lifecyles
     override init(reuseIdentifier: String?) {
@@ -76,7 +77,6 @@ final class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
         categoryLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().inset(4)
-            make.leading.equalToSuperview().inset(160)
         }
     }
     
@@ -85,7 +85,7 @@ final class MainMenuTableViewSectionHeader: UITableViewHeaderFooterView {
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).offset(4)
             make.centerX.equalToSuperview()
-            make.leading.equalToSuperview().inset(40)
+            make.top.equalTo(categoryLabel.snp.bottom).offset(4)
         }
     }
     

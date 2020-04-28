@@ -17,8 +17,9 @@ final class MainMenuViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = dataSource
+        tableView.register(MainMenuTableViewSectionHeader.self,
+                           forHeaderFooterViewReuseIdentifier: MainMenuTableViewSectionHeader.reuseIdentifier)
         navigationController?.navigationBar.isHidden = true
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -29,7 +30,8 @@ final class MainMenuViewController: UITableViewController {
 
 extension MainMenuViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionView = MainMenuTableViewSectionHeader()
+        guard let sectionView =
+            tableView.dequeueReusableHeaderFooterView(withIdentifier: MainMenuTableViewSectionHeader.reuseIdentifier) as? MainMenuTableViewSectionHeader else { return nil }
         sectionView.update(category: "category", title: "title")
         return sectionView
     }
