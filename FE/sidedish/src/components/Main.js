@@ -18,8 +18,8 @@ const Main = () => {
 
   return (
     <MainStyled>
+      <Tabs url='best' onClickHandler={onClickDetailItem} />
       <div className='inner'>
-        <Tabs url='best'/>
         <Carousel url='foodtype/1' onClickHandler={onClickDetailItem} />
         <Carousel url='foodtype/2' onClickHandler={onClickDetailItem} />
         <Carousel url='foodtype/3' onClickHandler={onClickDetailItem} />

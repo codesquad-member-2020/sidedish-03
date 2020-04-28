@@ -1,13 +1,16 @@
 import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
 import axios from 'axios';
 import useAsync from '../../utils/useAsync';
 import { URL } from '../../constant/url';
 import { Loading } from '../styled/Common';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import Item from '../Item';
+import '../../style/tabs.scss';
 
 export default props => {
+  const onClickTest = (item, title) => {
+    return props.onClickHandler(item, title);
+  };
   const getData = async () => {
     const response = await axios(`${URL}${props.url}`);
     return response;
@@ -19,21 +22,31 @@ export default props => {
   if (error) return <div>에러</div>;
   if (!bestItems) return null;
 
-  
   return (
     <>
       {bestItems && (
-        <Tabs>
-          <TabList>
-            {bestItems.data.map((cate, index) => (
-              <Tab key={index}>{cate.categoryName}</Tab>
-            ))}
-          </TabList>
-          {bestItems.data.map((itemList, index) => (
-            <TabPanel key={index}>
-              {itemList.items.map((item, i) => <Item key={i} data={item}/>)}
-            </TabPanel>
-          ))}
+        <Tabs className='tab-wrap'>
+          <div className='inner'>
+            <p className='tab-title'>
+              <span>베스트셀러</span>
+              후기가 증명하는 베스트셀러
+            </p>
+            <TabList className='tab-nav'>
+              {bestItems.data.map((cate, index) => (
+                <Tab key={index}>{cate.categoryName}</Tab>
+              ))}
+            </TabList>
+            {bestItems.data.map((itemList, index) => {
+              const sliceData = itemList.items.slice(0, 4);
+              return (
+                <TabPanel key={index} className='tab-panel'>
+                  {sliceData.map((item, i) => {
+                    return <Item key={i} data={item} onClickHandler={onClickTest} />;
+                  })}
+                </TabPanel>
+              );
+            })}
+          </div>
         </Tabs>
       )}
     </>
