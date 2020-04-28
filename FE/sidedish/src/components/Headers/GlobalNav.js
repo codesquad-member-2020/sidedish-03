@@ -1,22 +1,11 @@
 import React from 'react';
-import axios from 'axios';
-import {NavStyled, Loading} from '../styled/Common';
-import useAsync from '../../utils/useAsync';
-import { MOCK_URL } from '../../constant/url';
+import { NavStyled } from '../styled/Common';
+import { MENU } from './menu';
 import '../../style/gnb.scss';
 
 
-const getMenuList = async () => {
-  const response = await axios.get(`${MOCK_URL}data/menu.json`);
-  return response.data;
-};
-
 const GlobalNav = () => {
-  const state = useAsync(getMenuList);
-  const { loading, data: menuList, error } = state;
-  if (loading) return <Loading/>;
-  if (error) return <div>에러</div>;
-  if (!menuList) return null;
+  const menuList = MENU;
 
   return (
     <NavStyled>

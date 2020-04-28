@@ -17,6 +17,5 @@
 /dish-detail/{dish_id}
 */
 const URL = 'http://15.165.21.99/api/';
-const MOCK_URL = 'http://localhost:3000/';
 
-export {URL, MOCK_URL}
+export { URL };
