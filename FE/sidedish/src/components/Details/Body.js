@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Body = (props) => {
+const Body = props => {
   return (
     <div className='detail-body'>
       <h3>상세정보</h3>
@@ -8,6 +8,7 @@ const Body = (props) => {
         <p key={index}>
           <img src={item} alt={props.imgAlt} />
         </p>
+      ))}
     </div>
   );
 };
