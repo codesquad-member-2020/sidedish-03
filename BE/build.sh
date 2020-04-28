@@ -3,15 +3,15 @@ echo "===== Check update =====>"
 
 # 경로는 개인에 맞게 수정필요
 # check update
-cd /Users/idion/Downloads/sidedish-03/BE
+cd /Users/idion/Downloads/sidedish-03/BE || exit 1
 git fetch
-now=`git rev-parse HEAD`
-origin=`git rev-parse origin/master`
+now=$(git rev-parse HEAD)
+origin=$(git rev-parse origin/master)
 
 echo "[*] now : $now"
 echo "[*] origin : $origin"
 
-if [ $now == $origin ]; then
+if [ "$now" == "$origin" ]; then
         echo "Already up to date"
 else
         # merge and build
@@ -25,7 +25,7 @@ else
         echo "ROOT.war Successfully Uploaded"
 
         # move to FE directory
-        cd ../FE/sidedish
+        cd ../FE/sidedish || exit 1
 
         # npm install
         echo "npm install..."
