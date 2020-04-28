@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Carousel from './Carousel';
-import Detail from './Detail';
+import Detail from './Details/Index';
+import Tabs from './Tabs/Index';
 
 const Main = () => {
   const [detail, setDetail] = useState(null);
@@ -18,6 +19,7 @@ const Main = () => {
   return (
     <MainStyled>
       <div className='inner'>
+        <Tabs url='best'/>
         <Carousel url='foodtype/1' onClickHandler={onClickDetailItem} />
         <Carousel url='foodtype/2' onClickHandler={onClickDetailItem} />
         <Carousel url='foodtype/3' onClickHandler={onClickDetailItem} />
