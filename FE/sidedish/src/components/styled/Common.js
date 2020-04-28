@@ -147,7 +147,7 @@ const Loading = styled.div`
   position: relative;
   width: 30px;
   height: 30px;
-  margin: 0 auto;
+  margin: 30px auto;
   &::before {
     content: '';
     display: block;
