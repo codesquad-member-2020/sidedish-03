@@ -1,6 +1,7 @@
 package kr.codesquad.sidedish.business.mapper;
 
-import kr.codesquad.sidedish.business.dto.DishDto;
+import kr.codesquad.sidedish.business.ktdto.DishDto;
+import kr.codesquad.sidedish.business.wrapper.Money;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -10,14 +11,14 @@ public class DishDtoMapper implements RowMapper<DishDto> {
 
     @Override
     public DishDto mapRow(ResultSet rs, int rowNum) throws SQLException {
-        DishDto dishDto = new DishDto();
-        dishDto.setTopImage(rs.getString("top_image"));
-        dishDto.setDescription(rs.getString("description"));
-        dishDto.setPoint(rs.getString("point"));
-        dishDto.setDeliveryInfo(rs.getString("delivery_info"));
-        dishDto.setDeliveryFee(rs.getString("delivery_fee"));
-        dishDto.setNormalPrice(rs.getString("normal_price"));
-        dishDto.setSalePrice(rs.getString("sale_price"));
-        return dishDto;
+        return new DishDto(
+                rs.getString("top_image"),
+                rs.getString("description"),
+                Money.valueOf(rs.getLong("point")).format(),
+                rs.getString("delivery_info"),
+                rs.getString("delivery_fee"),
+                Money.valueOf(rs.getLong("normal_price")).format(),
+                Money.valueOf(rs.getLong("sale_price")).format()
+        );
     }
 }

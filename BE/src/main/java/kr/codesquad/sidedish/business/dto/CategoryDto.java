@@ -4,24 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDto {
-    private Long categoryId;
-    private String categoryName;
+    private final Long categoryId;
+    private final String categoryName;
     private List<DishOverviewDto> items = new ArrayList<>();
+
+    public CategoryDto(Long categoryId, String categoryName) {
+        this.categoryId = categoryId;
+        this.categoryName = categoryName;
+    }
 
     public Long getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
-
     public String getCategoryName() {
         return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
     }
 
     public List<DishOverviewDto> getItems() {

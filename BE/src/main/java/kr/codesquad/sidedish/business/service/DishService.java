@@ -1,10 +1,9 @@
 package kr.codesquad.sidedish.business.service;
 
 import kr.codesquad.sidedish.business.dao.DishDao;
-import kr.codesquad.sidedish.business.dto.DishDto;
+import kr.codesquad.sidedish.business.ktdto.DishDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,7 +12,7 @@ public class DishService {
 
     private final DishDao dishDao;
 
-    public DishService(@Qualifier("dishDaoSolar") DishDao dishDao) {
+    public DishService(DishDao dishDao) {
         this.dishDao = dishDao;
     }
 

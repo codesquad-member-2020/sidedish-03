@@ -9,9 +9,6 @@ import java.sql.SQLException;
 public class CategoryDtoMapper implements RowMapper<CategoryDto> {
     @Override
     public CategoryDto mapRow(ResultSet rs, int rowNum) throws SQLException {
-        CategoryDto categoryDto = new CategoryDto();
-        categoryDto.setCategoryId(rs.getLong("id"));
-        categoryDto.setCategoryName(rs.getString("name"));
-        return categoryDto;
+        return new CategoryDto(rs.getLong("id"), rs.getString("name"));
     }
 }

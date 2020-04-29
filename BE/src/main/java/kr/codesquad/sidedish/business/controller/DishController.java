@@ -1,6 +1,6 @@
 package kr.codesquad.sidedish.business.controller;
 
-import kr.codesquad.sidedish.business.dto.DishDto;
+import kr.codesquad.sidedish.business.ktdto.DishDto;
 import kr.codesquad.sidedish.business.service.DishService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

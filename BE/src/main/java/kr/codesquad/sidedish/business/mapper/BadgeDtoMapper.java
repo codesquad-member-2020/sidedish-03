@@ -10,9 +10,6 @@ public class BadgeDtoMapper implements RowMapper<BadgeDto> {
 
     @Override
     public BadgeDto mapRow(ResultSet rs, int rowNum) throws SQLException {
-        BadgeDto badgeDto = new BadgeDto();
-        badgeDto.setName(rs.getString("name"));
-        badgeDto.setColor(rs.getString("color"));
-        return badgeDto;
+        return new BadgeDto(rs.getString("name"), rs.getString("color"));
     }
 }

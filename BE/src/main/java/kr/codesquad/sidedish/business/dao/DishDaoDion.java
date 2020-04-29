@@ -1,6 +1,6 @@
 package kr.codesquad.sidedish.business.dao;
 
-import kr.codesquad.sidedish.business.dto.DishDto;
+import kr.codesquad.sidedish.business.ktdto.DishDto;
 import kr.codesquad.sidedish.business.mapper.BadgeDtoMapper;
 import kr.codesquad.sidedish.business.mapper.DishDtoMapper;
 import kr.codesquad.sidedish.common.error.exception.DishNotFoundException;
@@ -39,6 +39,7 @@ public class DishDaoDion implements DishDao {
         dishDto.setThumbImages(namedParameterJdbcTemplate.queryForList(THUMB_IMAGE_SQL, parameters, String.class));
         dishDto.setDetailSectionImages(namedParameterJdbcTemplate.queryForList(DETAIL_SECTION_IMAGE_SQL, parameters, String.class));
         dishDto.setBadges(namedParameterJdbcTemplate.query(BADGE_SQL, parameters, badgeDtoMapper));
+        log.debug("dishDto: {}", dishDto);
 
         return dishDto;
     }
