@@ -1,5 +1,6 @@
 package kr.codesquad.sidedish.common.error;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import kr.codesquad.sidedish.common.error.exception.BusinessException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -9,6 +10,8 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.io.IOException;
 
 @RestControllerAdvice
 public class GlobalRestExceptionHandler {
@@ -64,6 +67,13 @@ public class GlobalRestExceptionHandler {
     @ExceptionHandler(Exception.class)
     protected ResponseEntity<ErrorResponse> handleException(Exception e) {
         log.error("handleException", e);
+        final ErrorResponse response = ErrorResponse.of(ErrorCode.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(JsonProcessingException.class)
+    protected ResponseEntity<ErrorResponse> handleJsonProcessingExceptiooon(IOException e) {
+        log.error("IOException", e);
         final ErrorResponse response = ErrorResponse.of(ErrorCode.INTERNAL_SERVER_ERROR);
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }

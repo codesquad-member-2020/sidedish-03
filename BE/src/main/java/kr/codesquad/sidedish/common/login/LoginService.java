@@ -1,5 +1,8 @@
 package kr.codesquad.sidedish.common.login;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpEntity;
@@ -41,14 +44,23 @@ public class LoginService {
         return (GithubToken) response.getBody();
     }
 
-    public String getUserEmail(String githubToken) {
+    public String getUserEmail(String githubToken) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", githubToken);
 
         ResponseEntity<String> response = restTemplate.exchange(getUserEmailUrl, HttpMethod.GET, new HttpEntity<String>(headers), String.class);
         log.debug("getUserEmail Response : {}", response.getBody());
-        return response.getBody();
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String userInfo = response.getBody();
+        JsonNode user = objectMapper.readTree(userInfo);
+        for (JsonNode jsonNode : user) {
+            if (jsonNode.get("primary").asBoolean()) {
+                return jsonNode.get("email").textValue();
+            }
+        }
+        return null;
     }
 
 }
