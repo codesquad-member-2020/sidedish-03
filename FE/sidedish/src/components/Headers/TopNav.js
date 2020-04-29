@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import {getCookie} from '../../utils/cookie';
+import {getCookie , deleteCookie} from '../../utils/cookie';
 
 const TopNavStyled = styled.div`
   border-bottom: 1px solid #eee;
@@ -32,6 +32,9 @@ const TopNavStyled = styled.div`
 `;
 
 const TopNav = () => {
+  const onclickLogOut = () => {
+    deleteCookie('email')
+  }
   const [userCookie, setUserCookie] = useState(null);
   useEffect(() => {
     const userEmail = getCookie('email');
@@ -48,7 +51,7 @@ const TopNav = () => {
               <a href='https://github.com/login/oauth/authorize\?client_id=bed01aae4e0ea3bebf24&scope=user%20public_repo'>로그인</a>
             </li>
           ) : (
-            <li>로그아웃</li>
+            <li onClick={onclickLogOut}>로그아웃</li>
           )}
           <li>회원가입</li>
           <li>마이페이지</li>
