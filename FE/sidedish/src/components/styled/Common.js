@@ -131,11 +131,13 @@ const Mainloading = styled.div`
       animation-fill-mode: forwards;
     `}
   &::before {
-    content: 'LOADING';
+    content: 'LOADING..';
+    font-family: sans-serif;
     font-size: 22px;
   }
   &::after {
     content: 'SIDEDISH TEAM PROJECT';
+    font-family: sans-serif;
   }
 `;
 
@@ -226,6 +228,8 @@ const Mask = styled.div`
   }
   .detail-thumb {
     .thumb {
+      width: 367px;
+      height: 377px;
       img {
         margin: 0 auto;
       }
@@ -246,6 +250,7 @@ const Mask = styled.div`
       li {
         width: 80px;
         height: 80px;
+        vertical-align: top;
         img {
           opacity: 0.6;
         }

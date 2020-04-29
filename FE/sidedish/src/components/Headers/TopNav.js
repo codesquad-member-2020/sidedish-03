@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import {getCookie} from '../../utils/cookie';
 
 const TopNavStyled = styled.div`
   border-bottom: 1px solid #eee;
@@ -31,12 +32,24 @@ const TopNavStyled = styled.div`
 `;
 
 const TopNav = () => {
+  const [userCookie, setUserCookie] = useState(null);
+  useEffect(() => {
+    const userEmail = getCookie('email');
+    setUserCookie(userEmail);
+  }, [userCookie]);
+  
   return (
     <TopNavStyled>
       <div className='inner'>
         <span>Team#3 Project</span>
         <ul className='mem-utils'>
-          <li><a href='https://github.com/login/oauth/authorize\?client_id=bed01aae4e0ea3bebf24&scope=user%20public_repo'>로그인</a></li>
+          {!userCookie ? (
+            <li>
+              <a href='https://github.com/login/oauth/authorize\?client_id=bed01aae4e0ea3bebf24&scope=user%20public_repo'>로그인</a>
+            </li>
+          ) : (
+            <li>로그아웃</li>
+          )}
           <li>회원가입</li>
           <li>마이페이지</li>
           <li>고객센터</li>
