@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.websocket.server.PathParam;
 import java.io.IOException;
@@ -27,7 +26,9 @@ public class LoginController {
         log.debug("code : {}", code);
         GithubToken githubToken = loginService.getAccessToken(code);
         String userEmail = loginService.getUserEmail(githubToken.getAuthorizationValue());
-        response.addCookie(new Cookie("email", userEmail));
+        Cookie email = new Cookie("email", userEmail);
+        email.setPath("/");
+        response.addCookie(email);
         log.debug("userEmail : {}", userEmail);
         String redirectUrl = "http://15.165.21.99";
         response.sendRedirect(redirectUrl);
