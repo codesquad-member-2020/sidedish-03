@@ -23,13 +23,13 @@ public class LoginController {
     }
 
     @GetMapping("/githublogin")
-    public ResponseEntity<String> githubLogin(@PathParam("code") String code, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ResponseEntity<String> githubLogin(@PathParam("code") String code, HttpServletResponse response) throws IOException {
         log.debug("code : {}", code);
         GithubToken githubToken = loginService.getAccessToken(code);
         String userEmail = loginService.getUserEmail(githubToken.getAuthorizationValue());
         response.addCookie(new Cookie("email", userEmail));
         log.debug("userEmail : {}", userEmail);
-        String redirectUrl = request.getHeader("referer");
+        String redirectUrl = "http://15.165.21.99";
         response.sendRedirect(redirectUrl);
         return new ResponseEntity<>(HttpStatus.TEMPORARY_REDIRECT);
     }
