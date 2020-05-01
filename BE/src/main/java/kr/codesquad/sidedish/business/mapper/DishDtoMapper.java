@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DishDtoMapper implements RowMapper<DishDto> {
-
     @Override
     public DishDto mapRow(ResultSet rs, int rowNum) throws SQLException {
         return new DishDto(

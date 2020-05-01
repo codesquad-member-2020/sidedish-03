@@ -12,7 +12,6 @@ import java.util.TimeZone;
 
 @Configuration
 public class JacksonConfig {
-
     private static final String DATE_FORMAT = "yyyy-MM-dd";
     private static final String DATE_TIME_FORMAT = "yyyy-MM-dd HH:mm:ss";
     private static final String TIME_ZONE = "Asia/Seoul";

@@ -15,7 +15,6 @@ import java.io.IOException;
 
 @RestControllerAdvice
 public class GlobalRestExceptionHandler {
-
     private static final Logger log = LoggerFactory.getLogger(GlobalRestExceptionHandler.class);
 
     /**

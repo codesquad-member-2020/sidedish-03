@@ -3,7 +3,6 @@ package kr.codesquad.sidedish.common.error.exception;
 import kr.codesquad.sidedish.common.error.ErrorCode;
 
 public class BusinessException extends RuntimeException {
-
     private final ErrorCode errorCode;
 
     public BusinessException(String message, ErrorCode errorCode) {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FoodTypeDto {
-
     private final Long id;
     private final String name;
     private final String description;

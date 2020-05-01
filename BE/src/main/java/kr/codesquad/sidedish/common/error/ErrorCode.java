@@ -1,7 +1,6 @@
 package kr.codesquad.sidedish.common.error;
 
 public enum ErrorCode {
-
     // Common
     ENTITY_NOT_FOUND(404, "COM001", " Entity Not Found"),
     INVALID_TYPE_VALUE(400, "COM002", "Wrong Type"),
