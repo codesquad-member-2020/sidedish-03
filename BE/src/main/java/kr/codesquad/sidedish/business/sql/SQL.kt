@@ -1,5 +1,6 @@
 package kr.codesquad.sidedish.business.sql
 
+// language=SQL
 const val DISH_DETAIL_SQL: String = """
 SELECT img.url          AS top_image
      , sd.description   AS description
@@ -13,6 +14,7 @@ SELECT img.url          AS top_image
  WHERE sd.id = :id;
 """
 
+// language=SQL
 const val THUMB_IMAGE_SQL: String = """
 SELECT img.url
   FROM image                AS img
@@ -22,6 +24,7 @@ SELECT img.url
  ORDER BY img.thumb_image_order;
 """
 
+// language=SQL
 const val DETAIL_SECTION_IMAGE_SQL: String = """
 SELECT img.url
   FROM image                AS img
@@ -31,6 +34,7 @@ SELECT img.url
  ORDER BY img.detail_section_image_order;
 """
 
+// language=SQL
 const val BADGE_SQL: String = """
 SELECT b.name
      , b.color
@@ -40,6 +44,7 @@ SELECT b.name
  WHERE sd.id = :id;
 """
 
+// language=SQL
 const val ALL_FOOD_TYPE_SQL: String = """
 SELECT id
      , name
@@ -48,6 +53,7 @@ SELECT id
  WHERE 1 = 1;
 """
 
+// language=SQL
 const val FOOD_TYPE_SQL: String = """
 SELECT id
      , name
@@ -56,6 +62,7 @@ SELECT id
  WHERE id = :id;
 """
 
+// language=SQL
 const val DISH_OVERVIEW_SQL: String = """
 SELECT sd.id
      , i.url           AS main_image
@@ -70,6 +77,7 @@ SELECT sd.id
  WHERE ft.id = :id;
 """
 
+// language=SQL
 const val DELIVERY_TYPE_SQL: String = """
 SELECT dt.name
   FROM delivery_type_side_dish
@@ -78,17 +86,20 @@ SELECT dt.name
  WHERE sd.id = :id;
 """
 
+// language=SQL
 const val ALL_CATEGORIES_SQL: String = """
 SELECT id, name
   FROM category
 """
 
+// language=SQL
 const val CATEGORY_SQL: String = """
 SELECT id, name
   FROM category
  WHERE id = :id;
 """
 
+// language=SQL
 const val CATEGORY_DISH_OVERVIEW_SQL: String = """
 SELECT sd.id
      , i.url           AS main_image
