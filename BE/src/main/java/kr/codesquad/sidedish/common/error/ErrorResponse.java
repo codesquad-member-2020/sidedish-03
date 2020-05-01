@@ -60,9 +60,9 @@ public class ErrorResponse {
         private String value;
         private String reason;
 
-        private FieldError(final String field, final String value, final String reason) {
+        private FieldError(final String field, final Object value, final String reason) {
             this.field = field;
-            this.value = value;
+            this.value = value == null ? "" : value.toString();
             this.reason = reason;
         }
 
@@ -77,7 +77,7 @@ public class ErrorResponse {
             return fieldErrors.stream()
                               .map(error -> new FieldError(
                                       error.getField(),
-                                      error.getRejectedValue() == null ? "" : error.getRejectedValue().toString(),
+                                      error.getRejectedValue(),
                                       error.getDefaultMessage()))
                               .collect(Collectors.toList());
         }
