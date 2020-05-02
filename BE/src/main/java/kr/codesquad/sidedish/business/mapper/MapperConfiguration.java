@@ -5,10 +5,13 @@ import kr.codesquad.sidedish.business.dto.CategoryDto;
 import kr.codesquad.sidedish.business.dto.DishOverviewDto;
 import kr.codesquad.sidedish.business.dto.FoodTypeDto;
 import kr.codesquad.sidedish.business.ktdto.DishDto;
-import kr.codesquad.sidedish.business.wrapper.Money;
+import org.joda.money.BigMoney;
+import org.joda.money.CurrencyUnit;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.RowMapper;
+
+import java.util.Locale;
 
 @Configuration
 public class MapperConfiguration {
@@ -27,11 +30,11 @@ public class MapperConfiguration {
         return (rs, rowNum) -> new DishDto(
                 rs.getString("top_image"),
                 rs.getString("description"),
-                Money.valueOf(rs.getLong("point")).format(),
+                BigMoney.of(CurrencyUnit.of(Locale.KOREA), rs.getLong("point")).getAmountMajorLong(),
                 rs.getString("delivery_info"),
                 rs.getString("delivery_fee"),
-                Money.valueOf(rs.getLong("normal_price")).format(),
-                Money.valueOf(rs.getLong("sale_price")).format(),
+                BigMoney.of(CurrencyUnit.of(Locale.KOREA), rs.getLong("normal_price")).getAmountMajorLong(),
+                BigMoney.of(CurrencyUnit.of(Locale.KOREA), rs.getLong("sale_price")).getAmountMajorLong(),
                 null,
                 null,
                 null

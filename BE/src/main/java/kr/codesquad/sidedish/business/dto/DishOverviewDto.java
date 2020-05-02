@@ -1,9 +1,11 @@
 package kr.codesquad.sidedish.business.dto;
 
-import kr.codesquad.sidedish.business.wrapper.Money;
+import org.joda.money.BigMoney;
+import org.joda.money.CurrencyUnit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class DishOverviewDto {
     private final Long id;
@@ -11,8 +13,8 @@ public class DishOverviewDto {
     private final String alt;
     private final String title;
     private final String description;
-    private final String normalPrice;
-    private final String salePrice;
+    private final Long normalPrice;
+    private final Long salePrice;
     private List<String> deliveryTypes = new ArrayList<>();
     private List<BadgeDto> badges = new ArrayList<>();
 
@@ -46,11 +48,11 @@ public class DishOverviewDto {
         return description;
     }
 
-    public String getNormalPrice() {
+    public Long getNormalPrice() {
         return normalPrice;
     }
 
-    public String getSalePrice() {
+    public Long getSalePrice() {
         return salePrice;
     }
 
@@ -81,8 +83,8 @@ public class DishOverviewDto {
         private String alt;
         private String title;
         private String description;
-        private String normalPrice;
-        private String salePrice;
+        private Long normalPrice;
+        private Long salePrice;
 
         public Builder(Long id) {
             this.id = id;
@@ -109,12 +111,12 @@ public class DishOverviewDto {
         }
 
         public Builder normalPrice(Long normalPrice) {
-            this.normalPrice = Money.valueOf(normalPrice).format();
+            this.normalPrice = BigMoney.of(CurrencyUnit.of(Locale.KOREA), normalPrice).getAmountMajorLong();
             return this;
         }
 
         public Builder salePrice(Long salePrice) {
-            this.salePrice = Money.valueOf(salePrice).format();
+            this.salePrice = BigMoney.of(CurrencyUnit.of(Locale.KOREA), salePrice).getAmountMajorLong();
             return this;
         }
 

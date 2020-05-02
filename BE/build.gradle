@@ -35,6 +35,7 @@ dependencies {
     implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.2'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin:2.10.+'
+    implementation 'org.joda:joda-money:1.0.1'
 }
 
 test {

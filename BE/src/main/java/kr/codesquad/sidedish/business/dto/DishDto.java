@@ -1,19 +1,20 @@
 package kr.codesquad.sidedish.business.dto;
 
-
-import kr.codesquad.sidedish.business.wrapper.Money;
+import org.joda.money.BigMoney;
+import org.joda.money.CurrencyUnit;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class DishDto {
     private final String topImage;
     private final String description;
-    private final String point;
+    private final Long point;
     private final String deliveryInfo;
     private final String deliveryFee;
-    private final String normalPrice;
-    private final String salePrice;
+    private final Long normalPrice;
+    private final Long salePrice;
     private List<String> thumbImages = new ArrayList<>();
     private List<String> detailSectionImages = new ArrayList<>();
     private List<BadgeDto> badges = new ArrayList<>();
@@ -36,7 +37,7 @@ public class DishDto {
         return description;
     }
 
-    public String getPoint() {
+    public Long getPoint() {
         return point;
     }
 
@@ -48,11 +49,11 @@ public class DishDto {
         return deliveryFee;
     }
 
-    public String getNormalPrice() {
+    public Long getNormalPrice() {
         return normalPrice;
     }
 
-    public String getSalePrice() {
+    public Long getSalePrice() {
         return salePrice;
     }
 
@@ -88,11 +89,11 @@ public class DishDto {
     public static class Builder {
         private String topImage;
         private String description;
-        private String point;
+        private Long point;
         private String deliveryInfo;
         private String deliveryFee;
-        private String normalPrice;
-        private String salePrice;
+        private Long normalPrice;
+        private Long salePrice;
 
         public Builder topImage(String topImage) {
             this.topImage = topImage;
@@ -105,7 +106,7 @@ public class DishDto {
         }
 
         public Builder point(Long point) {
-            this.point = Money.valueOf(point).format();
+            this.point = BigMoney.of(CurrencyUnit.of(Locale.KOREA), point).getAmountMajorLong();
             return this;
         }
 
@@ -120,12 +121,12 @@ public class DishDto {
         }
 
         public Builder normalPrice(Long normalPrice) {
-            this.normalPrice = Money.valueOf(normalPrice).format();
+            this.normalPrice = BigMoney.of(CurrencyUnit.of(Locale.KOREA), normalPrice).getAmountMajorLong();
             return this;
         }
 
         public Builder salePrice(Long salePrice) {
-            this.salePrice = Money.valueOf(salePrice).format();
+            this.salePrice = BigMoney.of(CurrencyUnit.of(Locale.KOREA), salePrice).getAmountMajorLong();
             return this;
         }
 
