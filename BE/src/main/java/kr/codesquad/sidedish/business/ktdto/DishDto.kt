@@ -9,13 +9,8 @@ data class DishDto(
         val deliveryInfo: String,
         val deliveryFee: String,
         val normalPrice: String,
-        val salePrice: String
-) {
-    var thumbImages: List<String> = ArrayList()
-    var detailSectionImages: List<String> = ArrayList()
-    var badges: List<BadgeDto> = ArrayList()
-
-    override fun toString(): String {
-        return "DishDto(topImage='$topImage', description='$description', point='$point', deliveryInfo='$deliveryInfo', deliveryFee='$deliveryFee', normalPrice='$normalPrice', salePrice='$salePrice', thumbImages=$thumbImages, detailSectionImages=$detailSectionImages, badges=$badges)"
-    }
-}
+        val salePrice: String,
+        var thumbImages: List<String>? = emptyList(),
+        var detailSectionImages: List<String>? = emptyList(),
+        var  badges: List<BadgeDto>? = emptyList()
+)

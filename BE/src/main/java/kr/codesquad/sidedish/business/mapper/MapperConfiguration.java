@@ -31,7 +31,10 @@ public class MapperConfiguration {
                 rs.getString("delivery_info"),
                 rs.getString("delivery_fee"),
                 Money.valueOf(rs.getLong("normal_price")).format(),
-                Money.valueOf(rs.getLong("sale_price")).format()
+                Money.valueOf(rs.getLong("sale_price")).format(),
+                null,
+                null,
+                null
         );
     }
 
